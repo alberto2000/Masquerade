@@ -28,6 +28,7 @@
 
 #import "MasqAppDelegate.h"
 #import "MasqClearView.h"
+#import "MasqDarkButton.h"
 #import <QuartzCore/CoreAnimation.h>
 #import "FrameUtils.h"
 #import "UIView+FrameUtils.h"
@@ -93,6 +94,9 @@
     
     // create cursors
     [self createCursors];
+    
+    // create buttons
+    // [self createButtons];
     
     // fade in app
     [NSTimer scheduledTimerWithTimeInterval:0.15
@@ -182,6 +186,28 @@
     NSImage *imgNorthWestSouthEastCursor = [NSImage imageNamed:@"cursor_resizenorthwestsoutheast.pdf"];
     // NSDictionary *infoNorthWestSouthEast = [NSDictionary dictionaryWithContentsOfFile:@"info_resizenorthwestsoutheast.plist"];
     _cursorNorthWestSouthEast = [[NSCursor alloc] initWithImage:imgNorthWestSouthEastCursor hotSpot:NSMakePoint(9, 9)];
+}
+
+-(void)createButtons
+{
+    NSRect rect;
+    
+    // the reset button
+    rect = NSMakeRect(20, 40, 100, 24);
+    _resetButton = [[MasqDarkButton alloc] initWithFrame:rect];
+    [_resetButton setButtonType:NSMomentaryPushInButton];
+    [_resetButton setBezelStyle:NSRoundedBezelStyle];
+    [_resetButton setTitle:@"Reset"];
+    [self.window.contentView addSubview:_resetButton];
+    
+    // the about button
+    rect = NSMakeRect(140, 40, 100, 24);
+    _aboutButton = [[MasqDarkButton alloc] initWithFrame:rect];
+    [_aboutButton setButtonType:NSMomentaryPushInButton];
+    [_aboutButton setBezelStyle:NSRoundedBezelStyle];
+    [_aboutButton setTitle:@"About"];
+    [self.window.contentView addSubview:_aboutButton];
+    
 }
 
 -(NSDictionary *)getAreasWhereCursorIs

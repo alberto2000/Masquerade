@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0205F83C1993730800DC803A /* MasqClearView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0205F83B1993730800DC803A /* MasqClearView.m */; };
+		0205F83F1993875700DC803A /* MasqDarkButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0205F83E1993875700DC803A /* MasqDarkButtonCell.m */; };
+		0205F8421993934500DC803A /* MasqDarkButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0205F8411993934500DC803A /* MasqDarkButton.m */; };
 		021D4E3E1986E787005D4329 /* cursor_resizeeastwest.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 021D4E2F1986E787005D4329 /* cursor_resizeeastwest.pdf */; };
 		021D4E3F1986E787005D4329 /* info_resizeeastwest.plist in Resources */ = {isa = PBXBuildFile; fileRef = 021D4E301986E787005D4329 /* info_resizeeastwest.plist */; };
 		021D4E411986E787005D4329 /* cursor_resizenortheastsouthwest.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 021D4E331986E787005D4329 /* cursor_resizenortheastsouthwest.pdf */; };
@@ -47,6 +49,10 @@
 /* Begin PBXFileReference section */
 		0205F83A1993730800DC803A /* MasqClearView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasqClearView.h; sourceTree = "<group>"; };
 		0205F83B1993730800DC803A /* MasqClearView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasqClearView.m; sourceTree = "<group>"; };
+		0205F83D1993875700DC803A /* MasqDarkButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasqDarkButtonCell.h; sourceTree = "<group>"; };
+		0205F83E1993875700DC803A /* MasqDarkButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasqDarkButtonCell.m; sourceTree = "<group>"; };
+		0205F8401993934500DC803A /* MasqDarkButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasqDarkButton.h; sourceTree = "<group>"; };
+		0205F8411993934500DC803A /* MasqDarkButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasqDarkButton.m; sourceTree = "<group>"; };
 		021D4E2F1986E787005D4329 /* cursor_resizeeastwest.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = cursor_resizeeastwest.pdf; sourceTree = "<group>"; };
 		021D4E301986E787005D4329 /* info_resizeeastwest.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = info_resizeeastwest.plist; sourceTree = "<group>"; };
 		021D4E331986E787005D4329 /* cursor_resizenortheastsouthwest.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = cursor_resizenortheastsouthwest.pdf; sourceTree = "<group>"; };
@@ -204,6 +210,10 @@
 				0205F83B1993730800DC803A /* MasqClearView.m */,
 				028A50621986BC29009BBC3C /* MasqMaskingView.h */,
 				028A50631986BC29009BBC3C /* MasqMaskingView.m */,
+				0205F8401993934500DC803A /* MasqDarkButton.h */,
+				0205F8411993934500DC803A /* MasqDarkButton.m */,
+				0205F83D1993875700DC803A /* MasqDarkButtonCell.h */,
+				0205F83E1993875700DC803A /* MasqDarkButtonCell.m */,
 				028A50431986B5F2009BBC3C /* Interface.xib */,
 				028A50461986B5F2009BBC3C /* Images.xcassets */,
 				028A50351986B5F2009BBC3C /* Supporting Files */,
@@ -365,6 +375,8 @@
 				0205F83C1993730800DC803A /* MasqClearView.m in Sources */,
 				028A50421986B5F2009BBC3C /* MasqAppDelegate.m in Sources */,
 				028A503B1986B5F2009BBC3C /* main.m in Sources */,
+				0205F8421993934500DC803A /* MasqDarkButton.m in Sources */,
+				0205F83F1993875700DC803A /* MasqDarkButtonCell.m in Sources */,
 				028A50641986BC29009BBC3C /* MasqMaskingView.m in Sources */,
 				02A39BBA198BE7A100DC8BF8 /* UIView+FrameUtils.m in Sources */,
 				02A39BB9198BE7A100DC8BF8 /* FrameUtils.m in Sources */,

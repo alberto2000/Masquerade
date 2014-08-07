@@ -36,6 +36,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         // init
+        [self resetTrackingArea];
     }
     return self;
 }

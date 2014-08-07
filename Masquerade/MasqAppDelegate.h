@@ -29,6 +29,7 @@
 #import <Cocoa/Cocoa.h>
 #import "MasqMaskingView.h"
 #import "MasqClearView.h"
+#import "MasqDarkButton.h"
 
 @interface MasqAppDelegate : NSObject <NSApplicationDelegate, NSWindowDelegate>
 
@@ -51,6 +52,9 @@
 @property (strong, nonatomic) NSCursor *cursorNorthSouth;
 @property (strong, nonatomic) NSCursor *cursorNorthEastSouthWest;
 @property (strong, nonatomic) NSCursor *cursorNorthWestSouthEast;
+
+@property (strong, nonatomic) MasqDarkButton* resetButton;
+@property (strong, nonatomic) MasqDarkButton* aboutButton;
 
 @property BOOL cursorInTopMaskingView;
 @property BOOL cursorInLeftMaskingView;
