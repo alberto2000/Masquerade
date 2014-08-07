@@ -10,6 +10,7 @@
 		0205F83C1993730800DC803A /* MasqClearView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0205F83B1993730800DC803A /* MasqClearView.m */; };
 		0205F83F1993875700DC803A /* MasqDarkButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0205F83E1993875700DC803A /* MasqDarkButtonCell.m */; };
 		0205F8421993934500DC803A /* MasqDarkButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0205F8411993934500DC803A /* MasqDarkButton.m */; };
+		0205F8451993A65E00DC803A /* MasqLogoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0205F8441993A65E00DC803A /* MasqLogoView.m */; };
 		021D4E3E1986E787005D4329 /* cursor_resizeeastwest.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 021D4E2F1986E787005D4329 /* cursor_resizeeastwest.pdf */; };
 		021D4E3F1986E787005D4329 /* info_resizeeastwest.plist in Resources */ = {isa = PBXBuildFile; fileRef = 021D4E301986E787005D4329 /* info_resizeeastwest.plist */; };
 		021D4E411986E787005D4329 /* cursor_resizenortheastsouthwest.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 021D4E331986E787005D4329 /* cursor_resizenortheastsouthwest.pdf */; };
@@ -33,6 +34,9 @@
 		028A50661986BEF8009BBC3C /* Masquerade.icns in Resources */ = {isa = PBXBuildFile; fileRef = 028A50651986BEF8009BBC3C /* Masquerade.icns */; };
 		02A39BB9198BE7A100DC8BF8 /* FrameUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A39BB6198BE7A100DC8BF8 /* FrameUtils.m */; };
 		02A39BBA198BE7A100DC8BF8 /* UIView+FrameUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A39BB8198BE7A100DC8BF8 /* UIView+FrameUtils.m */; };
+		02C92C061993D51A00D52665 /* withlove.png in Resources */ = {isa = PBXBuildFile; fileRef = 02C92C051993D51A00D52665 /* withlove.png */; };
+		02C92C081993D53900D52665 /* icon_1024x1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 02C92C071993D53900D52665 /* icon_1024x1024.png */; };
+		02C92C0A1993DC5C00D52665 /* crash.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 02C92C091993DC5C00D52665 /* crash.aiff */; };
 		02CBBE401987852D0073DEB7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02CBBE3F1987852D0073DEB7 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +57,8 @@
 		0205F83E1993875700DC803A /* MasqDarkButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasqDarkButtonCell.m; sourceTree = "<group>"; };
 		0205F8401993934500DC803A /* MasqDarkButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasqDarkButton.h; sourceTree = "<group>"; };
 		0205F8411993934500DC803A /* MasqDarkButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasqDarkButton.m; sourceTree = "<group>"; };
+		0205F8431993A65E00DC803A /* MasqLogoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasqLogoView.h; sourceTree = "<group>"; };
+		0205F8441993A65E00DC803A /* MasqLogoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasqLogoView.m; sourceTree = "<group>"; };
 		021D4E2F1986E787005D4329 /* cursor_resizeeastwest.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = cursor_resizeeastwest.pdf; sourceTree = "<group>"; };
 		021D4E301986E787005D4329 /* info_resizeeastwest.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = info_resizeeastwest.plist; sourceTree = "<group>"; };
 		021D4E331986E787005D4329 /* cursor_resizenortheastsouthwest.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = cursor_resizenortheastsouthwest.pdf; sourceTree = "<group>"; };
@@ -87,6 +93,9 @@
 		02A39BB6198BE7A100DC8BF8 /* FrameUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrameUtils.m; sourceTree = "<group>"; };
 		02A39BB7198BE7A100DC8BF8 /* UIView+FrameUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FrameUtils.h"; sourceTree = "<group>"; };
 		02A39BB8198BE7A100DC8BF8 /* UIView+FrameUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FrameUtils.m"; sourceTree = "<group>"; };
+		02C92C051993D51A00D52665 /* withlove.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = withlove.png; path = ../withlove.png; sourceTree = "<group>"; };
+		02C92C071993D53900D52665 /* icon_1024x1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_1024x1024.png; path = Masquerade.iconset/icon_1024x1024.png; sourceTree = SOURCE_ROOT; };
+		02C92C091993DC5C00D52665 /* crash.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = crash.aiff; path = ../crash.aiff; sourceTree = "<group>"; };
 		02CBBE3F1987852D0073DEB7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -214,6 +223,8 @@
 				0205F8411993934500DC803A /* MasqDarkButton.m */,
 				0205F83D1993875700DC803A /* MasqDarkButtonCell.h */,
 				0205F83E1993875700DC803A /* MasqDarkButtonCell.m */,
+				0205F8431993A65E00DC803A /* MasqLogoView.h */,
+				0205F8441993A65E00DC803A /* MasqLogoView.m */,
 				028A50431986B5F2009BBC3C /* Interface.xib */,
 				028A50461986B5F2009BBC3C /* Images.xcassets */,
 				028A50351986B5F2009BBC3C /* Supporting Files */,
@@ -226,6 +237,9 @@
 			children = (
 				021D4E2C1986E787005D4329 /* Cursors */,
 				028A50651986BEF8009BBC3C /* Masquerade.icns */,
+				02C92C071993D53900D52665 /* icon_1024x1024.png */,
+				02C92C051993D51A00D52665 /* withlove.png */,
+				02C92C091993DC5C00D52665 /* crash.aiff */,
 				028A50361986B5F2009BBC3C /* Masquerade-Info.plist */,
 				028A50371986B5F2009BBC3C /* InfoPlist.strings */,
 				028A503A1986B5F2009BBC3C /* main.m */,
@@ -312,6 +326,9 @@
 				CLASSPREFIX = Masq;
 				LastUpgradeCheck = 0510;
 				TargetAttributes = {
+					028A502A1986B5F2009BBC3C = {
+						DevelopmentTeam = XJCU52LFLM;
+					};
 					028A504B1986B5F2009BBC3C = {
 						TestTargetID = 028A502A1986B5F2009BBC3C;
 					};
@@ -352,8 +369,11 @@
 				021D4E421986E787005D4329 /* info_resizenortheastsouthwest.plist in Resources */,
 				021D4E3E1986E787005D4329 /* cursor_resizeeastwest.pdf in Resources */,
 				021D4E441986E787005D4329 /* cursor_resizenorthsouth.pdf in Resources */,
+				02C92C061993D51A00D52665 /* withlove.png in Resources */,
+				02C92C081993D53900D52665 /* icon_1024x1024.png in Resources */,
 				028A503F1986B5F2009BBC3C /* Credits.rtf in Resources */,
 				028A50451986B5F2009BBC3C /* Interface.xib in Resources */,
+				02C92C0A1993DC5C00D52665 /* crash.aiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +399,7 @@
 				0205F83F1993875700DC803A /* MasqDarkButtonCell.m in Sources */,
 				028A50641986BC29009BBC3C /* MasqMaskingView.m in Sources */,
 				02A39BBA198BE7A100DC8BF8 /* UIView+FrameUtils.m in Sources */,
+				0205F8451993A65E00DC803A /* MasqLogoView.m in Sources */,
 				02A39BB9198BE7A100DC8BF8 /* FrameUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -511,10 +532,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Masquerade/Masquerade-Prefix.pch";
 				INFOPLIST_FILE = "Masquerade/Masquerade-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -524,10 +547,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Masquerade/Masquerade-Prefix.pch";
 				INFOPLIST_FILE = "Masquerade/Masquerade-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

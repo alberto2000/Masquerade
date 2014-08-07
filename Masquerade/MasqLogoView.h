@@ -1,5 +1,5 @@
 //
-// MasqClearView.m
+// MasqLogoView.h
 // Masquerade
 //
 // Created by Riccardo Lardi on 07/08/14.
@@ -26,42 +26,16 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "MasqClearView.h"
-#import "MasqAppDelegate.h"
+#import <Cocoa/Cocoa.h>
 
-@implementation MasqClearView
+@class MasqAppDelegate;
 
-- (id)initWithFrame:(NSRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // init
-        [self resetTrackingArea];
-    }
-    return self;
-}
+@interface MasqLogoView : NSView
 
-- (void)drawRect:(NSRect)dirtyRect
-{
-    [super drawRect:dirtyRect];
-    // Drawing code here.
-}
+@property (strong, nonatomic) MasqAppDelegate *mainController;
 
-- (void)resetTrackingArea
-{
-    if (_trackingArea != nil) {
-        [self removeTrackingArea:_trackingArea];
-    }
-    
-    int trackingAreaOptions = (NSTrackingMouseEnteredAndExited | NSTrackingMouseMoved | NSTrackingActiveInKeyWindow);
-    _trackingArea = [[NSTrackingArea alloc] initWithRect:self.bounds options:trackingAreaOptions owner:self userInfo:nil];
-    
-    [self addTrackingArea:_trackingArea];
-}
+@property NSRect originalFrame;
 
-- (void)mouseMoved:(NSEvent *)theEvent
-{
-    [_mainController clearViewMouseMoved:theEvent fromId:@"clearview"];
-}
+-(void)animateLogo;
 
 @end

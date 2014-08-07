@@ -28,16 +28,6 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "028A504B1986B5F2009BBC3C"
-               BuildableName = "MasqueradeTests.xctest"
-               BlueprintName = "MasqueradeTests"
-               ReferencedContainer = "container:Masquerade.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

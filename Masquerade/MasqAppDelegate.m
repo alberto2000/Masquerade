@@ -29,6 +29,7 @@
 #import "MasqAppDelegate.h"
 #import "MasqClearView.h"
 #import "MasqDarkButton.h"
+#import "MasqLogoView.h"
 #import <QuartzCore/CoreAnimation.h>
 #import "FrameUtils.h"
 #import "UIView+FrameUtils.h"
@@ -86,17 +87,34 @@
     [_titlebarBackgroundWindow setLevel:NSNormalWindowLevel];
     [_window addChildWindow:_titlebarBackgroundWindow ordered:NSWindowBelow];
     
+    // create titlebar view
+    _titlebarView = [[NSView alloc] initWithFrame:_titlebarBackgroundWindow.frame];
+    [_titlebarBackgroundWindow.contentView addSubview:_titlebarView];
+    
     // add masking subviews
     [self addMaskingSubviews];
+
+    // set inner dimensions
+    [self updateInnerDimensions];
     
     // reset masking subviews tracking areas
     [self resetAllTrackingAreas];
+    
+    // create logo view
+    _logoView = [[MasqLogoView alloc] initWithFrame:NSMakeRect(0, 0, _window.frame.size.width, _window.frame.size.height)];
+    [self.window.contentView addSubview:_logoView positioned:NSWindowAbove relativeTo:nil];
+    [_logoView setAlphaValue:0.0];
+    [_logoView setMainController:self];
     
     // create cursors
     [self createCursors];
     
     // create buttons
-    // [self createButtons];
+    [self createButtons];
+    
+    // create crash sound
+    NSString *resourcePath = [[NSBundle mainBundle] pathForResource:@"crash" ofType:@"aiff"];
+    _crashSound = [[NSSound alloc] initWithContentsOfFile:resourcePath byReference:YES];
     
     // fade in app
     [NSTimer scheduledTimerWithTimeInterval:0.15
@@ -169,6 +187,32 @@
     
 }
 
+-(void)resetMask
+{
+    int quarterWidth = _window.frame.size.width * 0.25;
+    int quarterHeight = _window.frame.size.height * 0.25;
+    
+    [_topMaskingView setFrame:NSMakeRect(quarterWidth, _window.frame.size.height - quarterHeight, _window.frame.size.width - quarterWidth * 2, quarterHeight)];
+    
+    [_bottomMaskingView setFrame:NSMakeRect(quarterWidth, 0, _window.frame.size.width - quarterWidth * 2, quarterHeight)];
+    
+    [_rightMaskingView setFrame:NSMakeRect(_window.frame.size.width - quarterWidth, quarterHeight, quarterWidth, _window.frame.size.height - quarterHeight * 2)];
+    
+    [_leftMaskingView setFrame:NSMakeRect(0, quarterHeight, quarterWidth, _window.frame.size.height - quarterHeight * 2)];
+    
+    [_topLeftMaskingView setFrame:NSMakeRect(0, _window.frame.size.height - quarterHeight, quarterWidth, quarterHeight)];
+    
+    [_topRightMaskingView setFrame:NSMakeRect(_window.frame.size.width - quarterWidth, _window.frame.size.height - quarterHeight, quarterWidth, quarterHeight)];
+    
+    [_bottomLeftMaskingView setFrame:NSMakeRect(0, 0, quarterWidth, quarterHeight)];
+    
+    [_bottomRightMaskingView setFrame:NSMakeRect(_window.frame.size.width - quarterWidth, 0, quarterWidth, quarterHeight)];
+    
+    [self resetAllTrackingAreas];
+    [_logoView animateLogo];
+    [_crashSound play];
+}
+
 -(void)createCursors
 {
     NSImage *imgEastWestCursor = [NSImage imageNamed:@"cursor_resizeeastwest.pdf"];
@@ -192,21 +236,15 @@
 {
     NSRect rect;
     
-    // the reset button
-    rect = NSMakeRect(20, 40, 100, 24);
-    _resetButton = [[MasqDarkButton alloc] initWithFrame:rect];
-    [_resetButton setButtonType:NSMomentaryPushInButton];
-    [_resetButton setBezelStyle:NSRoundedBezelStyle];
-    [_resetButton setTitle:@"Reset"];
-    [self.window.contentView addSubview:_resetButton];
-    
     // the about button
-    rect = NSMakeRect(140, 40, 100, 24);
+    rect = NSMakeRect(_titlebarView.frame.size.width - 104, 0, 100, 20);
     _aboutButton = [[MasqDarkButton alloc] initWithFrame:rect];
     [_aboutButton setButtonType:NSMomentaryPushInButton];
     [_aboutButton setBezelStyle:NSRoundedBezelStyle];
     [_aboutButton setTitle:@"About"];
-    [self.window.contentView addSubview:_aboutButton];
+    [_titlebarBackgroundWindow.contentView addSubview:_aboutButton];
+    [_aboutButton setTarget:self];
+    [_aboutButton setAction:@selector(showAbout)];
     
 }
 
@@ -260,6 +298,7 @@
         
         NSPoint cursorInView = [_view convertPoint:[theEvent locationInWindow] fromView:nil];
         
+        [self updateInnerDimensions];
         [self resetAllTrackingAreas];
         
         if ([_draggingArea isEqual: @"barTop"]) {
@@ -544,6 +583,12 @@
     [_bottomRightMaskingView resetTrackingArea];
 }
 
+-(void)updateInnerDimensions
+{
+    _innerWidth = _window.frame.size.width - _leftMaskingView.frame.size.width - _rightMaskingView.frame.size.width;
+    _innerHeight = _window.frame.size.height - _topMaskingView.frame.size.height - _bottomMaskingView.frame.size.height;
+}
+
 -(void)checkDrag
 {
     NSDictionary *dict = [self getAreasWhereCursorIs];
@@ -563,6 +608,10 @@
     _dragging = NO;
     _draggingArea = @"";
     [self maskingViewsTranslucent:NO];
+    
+    if (_innerHeight <= 0 || _innerWidth <= 0) {
+        [self resetMask];
+    }
 }
 
 -(void)maskingViewsTranslucent:(BOOL)flag
@@ -583,6 +632,8 @@
     }
     
     _mouseHideTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(hideMouse:) userInfo:nil repeats:NO];
+    
+   [[_aboutButton animator] setAlphaValue:1.0];
 }
 
 -(void)hideMouse:(NSTimer *)timer
@@ -593,12 +644,26 @@
     
 	[NSCursor setHiddenUntilMouseMoves:YES];
 	_mouseHideTimer = nil;
+    
+    [[_aboutButton animator] setAlphaValue:0.0];
 }
 
 - (void)onMenuAboutClick:(id)sender
 {
-    // TODO
-    NSLog(@"Open About Dialog");
+    [self showAbout];
+}
+
+- (void)showAbout
+{
+    [_aboutPanel setIsVisible:YES];
+}
+
+- (IBAction)openLinkStephan:(id)sender {
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://www.stephanwalter.ch"]];
+}
+
+- (IBAction)openLinkRiccardo:(id)sender {
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://www.riccardolardi.com"]];
 }
 
 -(void)windowWillClose:(NSNotification *)notification

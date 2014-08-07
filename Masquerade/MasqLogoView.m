@@ -1,5 +1,5 @@
 //
-// MasqClearView.m
+// MasqLogoView.m
 // Masquerade
 //
 // Created by Riccardo Lardi on 07/08/14.
@@ -26,42 +26,45 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "MasqClearView.h"
+#import "MasqLogoView.h"
 #import "MasqAppDelegate.h"
 
-@implementation MasqClearView
+@implementation MasqLogoView
 
 - (id)initWithFrame:(NSRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         // init
-        [self resetTrackingArea];
+        _originalFrame = frame;
+        [self setAutoresizesSubviews:YES];
     }
     return self;
+}
+
+- (NSView *)hitTest:(NSPoint)aPoint
+{
+    return nil;
 }
 
 - (void)drawRect:(NSRect)dirtyRect
 {
     [super drawRect:dirtyRect];
-    // Drawing code here.
+    
+    // add background image
+    NSRect rect = NSMakeRect(_originalFrame.size.width / 2 - _originalFrame.size.height / 2, _originalFrame.size.height / 2 - _originalFrame.size.height / 2, _originalFrame.size.height, _originalFrame.size.height);
+    [[NSImage imageNamed:@"icon_1024x1024"] drawInRect:rect fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1];
 }
 
-- (void)resetTrackingArea
+- (void)animateLogo
 {
-    if (_trackingArea != nil) {
-        [self removeTrackingArea:_trackingArea];
-    }
+    [self setAlphaValue:1.0];
     
-    int trackingAreaOptions = (NSTrackingMouseEnteredAndExited | NSTrackingMouseMoved | NSTrackingActiveInKeyWindow);
-    _trackingArea = [[NSTrackingArea alloc] initWithRect:self.bounds options:trackingAreaOptions owner:self userInfo:nil];
-    
-    [self addTrackingArea:_trackingArea];
-}
+    [NSAnimationContext beginGrouping];
+    [[NSAnimationContext currentContext] setDuration:1.0];
+    [[self animator] setAlphaValue:0.0];
+    [NSAnimationContext endGrouping];
 
-- (void)mouseMoved:(NSEvent *)theEvent
-{
-    [_mainController clearViewMouseMoved:theEvent fromId:@"clearview"];
 }
 
 @end

@@ -30,6 +30,7 @@
 #import "MasqMaskingView.h"
 #import "MasqClearView.h"
 #import "MasqDarkButton.h"
+#import "MasqLogoView.h"
 
 @interface MasqAppDelegate : NSObject <NSApplicationDelegate, NSWindowDelegate>
 
@@ -37,6 +38,8 @@
 @property (strong, nonatomic) NSWindow *titlebarBackgroundWindow;
 
 @property (strong, nonatomic) MasqClearView *view;
+@property (strong, nonatomic) NSView *titlebarView;
+@property (strong, nonatomic) MasqLogoView *logoView;
 
 @property (strong, nonatomic) MasqMaskingView *topMaskingView;
 @property (strong, nonatomic) MasqMaskingView *leftMaskingView;
@@ -53,8 +56,9 @@
 @property (strong, nonatomic) NSCursor *cursorNorthEastSouthWest;
 @property (strong, nonatomic) NSCursor *cursorNorthWestSouthEast;
 
-@property (strong, nonatomic) MasqDarkButton* resetButton;
 @property (strong, nonatomic) MasqDarkButton* aboutButton;
+
+@property (strong, nonatomic) NSSound *crashSound;
 
 @property BOOL cursorInTopMaskingView;
 @property BOOL cursorInLeftMaskingView;
@@ -69,9 +73,17 @@
 @property BOOL dragging;
 @property NSString *draggingArea;
 
+@property int innerWidth;
+@property int innerHeight;
+
 @property NSTimer* mouseHideTimer;
 
+@property (strong) IBOutlet NSPanel *aboutPanel;
+
 -(IBAction)onMenuAboutClick:(id)sender;
+
+-(IBAction)openLinkStephan:(id)sender;
+-(IBAction)openLinkRiccardo:(id)sender;
 
 -(void)mouseDown:(NSEvent *)theEvent fromId:(NSString *)fromId;
 -(void)mouseDragged:(NSEvent *)theEvent fromId:(NSString *)fromId;

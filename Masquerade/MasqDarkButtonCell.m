@@ -30,6 +30,21 @@
 
 @implementation MasqDarkButtonCell
 
+- (NSRect)drawTitle:(NSAttributedString*)title withFrame:(NSRect)frame inView:(NSView*)controlView
+{
+    NSMutableAttributedString *attrString = [title mutableCopy];
+    
+    [attrString beginEditing];
+    [attrString addAttribute:NSForegroundColorAttributeName value:[NSColor colorWithWhite:0.85 alpha:0.75] range:NSMakeRange(0, [[self title] length])];
+    [attrString endEditing];
+    
+    frame.origin.y = frame.origin.y + 2;
+    
+    NSRect r = [super drawTitle:attrString withFrame:frame inView:controlView];
+    
+    return r;
+}
+
 - (void)drawBezelWithFrame:(NSRect)frame inView:(NSView *)controlView
 {
     NSGraphicsContext *ctx = [NSGraphicsContext currentContext];
