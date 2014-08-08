@@ -63,7 +63,7 @@
     [_window setBackgroundColor:[NSColor clearColor]];
     [_window setCollectionBehavior:NSWindowCollectionBehaviorManaged];
     [_window setDelegate:self];
-    [_window setLevel:NSNormalWindowLevel];
+    [_window setLevel:kCGMainMenuWindowLevel + 2];
     [_window makeKeyAndOrderFront:self];
     
     // create main view

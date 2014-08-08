@@ -52,7 +52,7 @@
     [super drawRect:dirtyRect];
     
     // add background image
-    NSRect rect = NSMakeRect(_originalFrame.size.width / 2 - _originalFrame.size.height / 2, _originalFrame.size.height / 2 - _originalFrame.size.height / 2, _originalFrame.size.height, _originalFrame.size.height);
+    NSRect rect = NSMakeRect(_originalFrame.size.width / 2 - _originalFrame.size.height / 2 * 0.75, _originalFrame.size.height / 2 - _originalFrame.size.height / 2 * 0.75, _originalFrame.size.height * 0.75, _originalFrame.size.height * 0.75);
     [[NSImage imageNamed:@"icon_1024x1024"] drawInRect:rect fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1];
 }
 
@@ -61,7 +61,7 @@
     [self setAlphaValue:1.0];
     
     [NSAnimationContext beginGrouping];
-    [[NSAnimationContext currentContext] setDuration:1.0];
+    [[NSAnimationContext currentContext] setDuration:1.5];
     [[self animator] setAlphaValue:0.0];
     [NSAnimationContext endGrouping];
 
