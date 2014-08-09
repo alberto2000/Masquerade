@@ -28,6 +28,12 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class MasqAppDelegate;
+
 @interface MasqDarkButton : NSButton
+
+@property (strong, nonatomic) MasqAppDelegate *mainController;
+
+@property (strong, nonatomic) NSTrackingArea *trackingArea;
 
 @end

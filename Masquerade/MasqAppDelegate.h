@@ -95,4 +95,6 @@
 
 -(void)clearViewMouseMoved:(NSEvent *)theEvent fromId:(NSString *)fromId;
 
+-(void)invalidateMouseHideTimer;
+
 @end

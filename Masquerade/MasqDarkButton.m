@@ -28,6 +28,7 @@
 
 #import "MasqDarkButton.h"
 #import "MasqDarkButtonCell.h"
+#import "MasqAppDelegate.h"
 
 @implementation MasqDarkButton
 
@@ -38,6 +39,7 @@
         // init
         MasqDarkButtonCell *cell = [[MasqDarkButtonCell alloc]init];
         [self setCell:cell];
+        [self updateTrackingAreas];
     }
     return self;
 }
@@ -45,6 +47,26 @@
 - (void)drawRect:(NSRect)dirtyRect
 {
     [super drawRect:dirtyRect];
+}
+
+-(void)updateTrackingAreas
+{
+    if(_trackingArea != nil) {
+        [self removeTrackingArea:_trackingArea];
+    }
+    
+    int opts = (NSTrackingMouseEnteredAndExited | NSTrackingActiveAlways);
+    _trackingArea = [[NSTrackingArea alloc] initWithRect:[self bounds]
+                                                     options:opts
+                                                       owner:self
+                                                    userInfo:nil];
+    
+    [self addTrackingArea:_trackingArea];
+}
+
+- (void)mouseEntered:(NSEvent *)theEvent
+{
+    [_mainController invalidateMouseHideTimer];
 }
 
 + (Class)cellClass

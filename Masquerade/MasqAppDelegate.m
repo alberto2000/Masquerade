@@ -91,6 +91,9 @@
     _titlebarView = [[NSView alloc] initWithFrame:_titlebarBackgroundWindow.frame];
     [_titlebarBackgroundWindow.contentView addSubview:_titlebarView];
     
+    // setup about panel
+    [_aboutPanel setLevel:kCGMainMenuWindowLevel + 3];
+    
     // add masking subviews
     [self addMaskingSubviews];
 
@@ -245,6 +248,7 @@
     [_titlebarBackgroundWindow.contentView addSubview:_aboutButton];
     [_aboutButton setTarget:self];
     [_aboutButton setAction:@selector(showAbout)];
+    [_aboutButton setMainController:self];
     
 }
 
@@ -617,8 +621,8 @@
 -(void)maskingViewsTranslucent:(BOOL)flag
 {
     if (flag == YES) {
-        [[_window animator] setAlphaValue:0.5f];
-        [[_titlebarBackgroundWindow animator] setAlphaValue:0.5f];
+        [[_window animator] setAlphaValue:0.75f];
+        [[_titlebarBackgroundWindow animator] setAlphaValue:0.75f];
     } else {
         [[_window animator] setAlphaValue:1.0f];
         [[_titlebarBackgroundWindow animator] setAlphaValue:1.0f];
@@ -627,9 +631,7 @@
 
 -(void)clearViewMouseMoved:(NSEvent *)theEvent fromId:(NSString *)fromId
 {
-    if (_mouseHideTimer != nil) {
-        [_mouseHideTimer invalidate];
-    }
+    [self invalidateMouseHideTimer];
     
     _mouseHideTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(hideMouse:) userInfo:nil repeats:NO];
     
@@ -648,6 +650,13 @@
     [[_aboutButton animator] setAlphaValue:0.0];
 }
 
+-(void)invalidateMouseHideTimer
+{
+    if (_mouseHideTimer != nil) {
+        [_mouseHideTimer invalidate];
+    }
+}
+
 - (void)onMenuAboutClick:(id)sender
 {
     [self showAbout];
@@ -656,6 +665,7 @@
 - (void)showAbout
 {
     [_aboutPanel setIsVisible:YES];
+    
 }
 
 - (IBAction)openLinkStephan:(id)sender {
