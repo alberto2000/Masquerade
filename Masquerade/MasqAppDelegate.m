@@ -376,11 +376,11 @@
             [_rightMaskingView frameMoveToX:floor(cursorInView.x)];
             
             // topright bar
-            [_topRightMaskingView frameResizeToWidth:floor(_window.frame.size.width - cursorInView.x)];
+            [_topRightMaskingView frameResizeToWidth:ceil(_window.frame.size.width - cursorInView.x)];
             [_topRightMaskingView frameMoveToX:floor(cursorInView.x)];
             
             // bottomright bar
-            [_bottomRightMaskingView frameResizeToWidth:floor(_window.frame.size.width - cursorInView.x)];
+            [_bottomRightMaskingView frameResizeToWidth:ceil(_window.frame.size.width - cursorInView.x)];
             [_bottomRightMaskingView frameMoveToX:floor(cursorInView.x)];
             
             // top bar
