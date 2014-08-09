@@ -96,9 +96,6 @@
     
     // add masking subviews
     [self addMaskingSubviews];
-
-    // set inner dimensions
-    [self updateInnerDimensions];
     
     // reset masking subviews tracking areas
     [self resetAllTrackingAreas];
@@ -118,6 +115,9 @@
     // create crash sound
     NSString *resourcePath = [[NSBundle mainBundle] pathForResource:@"crash" ofType:@"aiff"];
     _crashSound = [[NSSound alloc] initWithContentsOfFile:resourcePath byReference:YES];
+    
+    // set inner dimensions
+    [self updateInnerDimensions];
     
     // fade in app
     [NSTimer scheduledTimerWithTimeInterval:0.15
@@ -212,6 +212,7 @@
     [_bottomRightMaskingView setFrame:NSMakeRect(_window.frame.size.width - quarterWidth, 0, quarterWidth, quarterHeight)];
     
     [self resetAllTrackingAreas];
+    [self updateInnerDimensions];
     [_logoView animateLogo];
     [_crashSound play];
 }
@@ -240,7 +241,7 @@
     NSRect rect;
     
     // the about button
-    rect = NSMakeRect(_titlebarView.frame.size.width - 104, 0, 100, 20);
+    rect = NSMakeRect(_titlebarView.frame.size.width - 76, 0, 72, 20);
     _aboutButton = [[MasqDarkButton alloc] initWithFrame:rect];
     [_aboutButton setButtonType:NSMomentaryPushInButton];
     [_aboutButton setBezelStyle:NSRoundedBezelStyle];
