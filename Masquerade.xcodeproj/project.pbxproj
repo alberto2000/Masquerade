@@ -16,12 +16,12 @@
 		028A503B1986B5F2009BBC3C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 028A503A1986B5F2009BBC3C /* main.m */; };
 		028A503F1986B5F2009BBC3C /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 028A503D1986B5F2009BBC3C /* Credits.rtf */; };
 		028A50421986B5F2009BBC3C /* MasqAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 028A50411986B5F2009BBC3C /* MasqAppDelegate.m */; };
-		028A50451986B5F2009BBC3C /* Interface.xib in Resources */ = {isa = PBXBuildFile; fileRef = 028A50431986B5F2009BBC3C /* Interface.xib */; };
 		028A504E1986B5F2009BBC3C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028A504D1986B5F2009BBC3C /* XCTest.framework */; };
 		028A504F1986B5F2009BBC3C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028A502E1986B5F2009BBC3C /* Cocoa.framework */; };
 		028A50571986B5F2009BBC3C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 028A50551986B5F2009BBC3C /* InfoPlist.strings */; };
 		028A50591986B5F2009BBC3C /* MasqueradeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 028A50581986B5F2009BBC3C /* MasqueradeTests.m */; };
 		028A50641986BC29009BBC3C /* MasqMaskingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 028A50631986BC29009BBC3C /* MasqMaskingView.m */; };
+		029C102719F6F09800890AB2 /* Interface.xib in Resources */ = {isa = PBXBuildFile; fileRef = 028A50431986B5F2009BBC3C /* Interface.xib */; };
 		02A39BB9198BE7A100DC8BF8 /* FrameUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A39BB6198BE7A100DC8BF8 /* FrameUtils.m */; };
 		02A39BBA198BE7A100DC8BF8 /* UIView+FrameUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A39BB8198BE7A100DC8BF8 /* UIView+FrameUtils.m */; };
 		02C92C0E1993E91F00D52665 /* withlove.png in Resources */ = {isa = PBXBuildFile; fileRef = 02C92C0D1993E91F00D52665 /* withlove.png */; };
@@ -374,9 +374,9 @@
 				02C92C231993E94600D52665 /* cursor_resizeeastwest.pdf in Resources */,
 				028A503F1986B5F2009BBC3C /* Credits.rtf in Resources */,
 				02C92C2A1993E94600D52665 /* info_resizenorthsouth.plist in Resources */,
-				028A50451986B5F2009BBC3C /* Interface.xib in Resources */,
 				02C92C101993E92800D52665 /* crash.aiff in Resources */,
 				02C92C241993E94600D52665 /* info_resizeeastwest.plist in Resources */,
+				029C102719F6F09800890AB2 /* Interface.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,6 +542,7 @@
 				INFOPLIST_FILE = "Masquerade/Masquerade-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -557,6 +558,7 @@
 				INFOPLIST_FILE = "Masquerade/Masquerade-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

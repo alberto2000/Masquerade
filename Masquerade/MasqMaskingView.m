@@ -35,8 +35,10 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        
         // init
         [self resetTrackingArea];
+        
     }
     return self;
 }
@@ -47,6 +49,7 @@
     
     // black background color
     [[NSColor blackColor] setFill];
+    
     NSRectFill(dirtyRect);
 }
 

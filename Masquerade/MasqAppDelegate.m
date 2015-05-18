@@ -103,7 +103,6 @@
     // create logo view
     _logoView = [[MasqLogoView alloc] initWithFrame:NSMakeRect(0, 0, _window.frame.size.width, _window.frame.size.height)];
     [self.window.contentView addSubview:_logoView positioned:NSWindowAbove relativeTo:nil];
-    [_logoView setAlphaValue:0.0];
     [_logoView setMainController:self];
     
     // create cursors

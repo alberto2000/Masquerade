@@ -36,8 +36,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         // init
-        _originalFrame = frame;
-        [self setAutoresizesSubviews:YES];
+        [self setAlphaValue:0.0f];
     }
     return self;
 }
@@ -51,8 +50,17 @@
 {
     [super drawRect:dirtyRect];
     
+//    _image = [[NSImageView alloc] initWithFrame:NSMakeRect(0, 0, self.frame.size.width, self.frame.size.height)];
+//    
+//    NSImage *imgFile = [NSImage imageNamed:@"icon_1024x1024"];
+//    
+//    [_image setImageAlignment:NSImageAlignCenter];
+//    [_image setImage:imgFile];
+//    
+//    [self addSubview:_image];
+    
     // add background image
-    NSRect rect = NSMakeRect(_originalFrame.size.width / 2 - _originalFrame.size.height / 2 * 0.75, _originalFrame.size.height / 2 - _originalFrame.size.height / 2 * 0.75, _originalFrame.size.height * 0.75, _originalFrame.size.height * 0.75);
+    NSRect rect = NSMakeRect(self.frame.size.width / 2 - self.frame.size.height / 2 * 0.75, self.frame.size.height / 2 - self.frame.size.height / 2 * 0.75, self.frame.size.height * 0.75, self.frame.size.height * 0.75);
     [[NSImage imageNamed:@"icon_1024x1024"] drawInRect:rect fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1];
 }
 
@@ -61,7 +69,7 @@
     [self setAlphaValue:1.0];
     
     [NSAnimationContext beginGrouping];
-    [[NSAnimationContext currentContext] setDuration:1.5];
+    [[NSAnimationContext currentContext] setDuration:1.25];
     [[self animator] setAlphaValue:0.0];
     [NSAnimationContext endGrouping];
 

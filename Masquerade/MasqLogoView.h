@@ -34,7 +34,7 @@
 
 @property (strong, nonatomic) MasqAppDelegate *mainController;
 
-@property NSRect originalFrame;
+@property (strong, nonatomic) NSImageView *image;
 
 -(void)animateLogo;
 
