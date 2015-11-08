@@ -21,7 +21,6 @@
 		028A50571986B5F2009BBC3C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 028A50551986B5F2009BBC3C /* InfoPlist.strings */; };
 		028A50591986B5F2009BBC3C /* MasqueradeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 028A50581986B5F2009BBC3C /* MasqueradeTests.m */; };
 		028A50641986BC29009BBC3C /* MasqMaskingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 028A50631986BC29009BBC3C /* MasqMaskingView.m */; };
-		029C102719F6F09800890AB2 /* Interface.xib in Resources */ = {isa = PBXBuildFile; fileRef = 028A50431986B5F2009BBC3C /* Interface.xib */; };
 		02A39BB9198BE7A100DC8BF8 /* FrameUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A39BB6198BE7A100DC8BF8 /* FrameUtils.m */; };
 		02A39BBA198BE7A100DC8BF8 /* UIView+FrameUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A39BB8198BE7A100DC8BF8 /* UIView+FrameUtils.m */; };
 		02C92C0E1993E91F00D52665 /* withlove.png in Resources */ = {isa = PBXBuildFile; fileRef = 02C92C0D1993E91F00D52665 /* withlove.png */; };
@@ -70,7 +69,6 @@
 		028A503E1986B5F2009BBC3C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		028A50401986B5F2009BBC3C /* MasqAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasqAppDelegate.h; sourceTree = "<group>"; };
 		028A50411986B5F2009BBC3C /* MasqAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasqAppDelegate.m; sourceTree = "<group>"; };
-		028A50441986B5F2009BBC3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/Interface.xib; sourceTree = "<group>"; };
 		028A504C1986B5F2009BBC3C /* MasqueradeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MasqueradeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		028A504D1986B5F2009BBC3C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		028A50541986B5F2009BBC3C /* MasqueradeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MasqueradeTests-Info.plist"; sourceTree = "<group>"; };
@@ -177,7 +175,6 @@
 				0205F83E1993875700DC803A /* MasqDarkButtonCell.m */,
 				0205F8431993A65E00DC803A /* MasqLogoView.h */,
 				0205F8441993A65E00DC803A /* MasqLogoView.m */,
-				028A50431986B5F2009BBC3C /* Interface.xib */,
 				028A50351986B5F2009BBC3C /* Supporting Files */,
 			);
 			path = Masquerade;
@@ -323,7 +320,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = Masq;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0710;
 				TargetAttributes = {
 					028A502A1986B5F2009BBC3C = {
 						DevelopmentTeam = XJCU52LFLM;
@@ -344,7 +341,6 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
 			);
 			mainGroup = 028A50221986B5F2009BBC3C;
 			productRefGroup = 028A502C1986B5F2009BBC3C /* Products */;
@@ -376,7 +372,6 @@
 				02C92C2A1993E94600D52665 /* info_resizenorthsouth.plist in Resources */,
 				02C92C101993E92800D52665 /* crash.aiff in Resources */,
 				02C92C241993E94600D52665 /* info_resizeeastwest.plist in Resources */,
-				029C102719F6F09800890AB2 /* Interface.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,14 +437,6 @@
 			name = Credits.rtf;
 			sourceTree = "<group>";
 		};
-		028A50431986B5F2009BBC3C /* Interface.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				028A50441986B5F2009BBC3C /* Base */,
-			);
-			name = Interface.xib;
-			sourceTree = "<group>";
-		};
 		028A50551986B5F2009BBC3C /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -478,6 +465,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -541,6 +529,7 @@
 				GCC_PREFIX_HEADER = "Masquerade/Masquerade-Prefix.pch";
 				INFOPLIST_FILE = "Masquerade/Masquerade-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.riccardolardi.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
@@ -557,6 +546,7 @@
 				GCC_PREFIX_HEADER = "Masquerade/Masquerade-Prefix.pch";
 				INFOPLIST_FILE = "Masquerade/Masquerade-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.riccardolardi.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
@@ -579,6 +569,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "MasqueradeTests/MasqueradeTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "riccardolardi.com.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -597,6 +588,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Masquerade/Masquerade-Prefix.pch";
 				INFOPLIST_FILE = "MasqueradeTests/MasqueradeTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "riccardolardi.com.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;

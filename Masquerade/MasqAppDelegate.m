@@ -635,7 +635,8 @@
     
     _mouseHideTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(hideMouse:) userInfo:nil repeats:NO];
     
-   [[_aboutButton animator] setAlphaValue:1.0];
+    [[_aboutButton animator] setAlphaValue:1.0];
+//    [self showTitlebar];
 }
 
 -(void)hideMouse:(NSTimer *)timer
@@ -648,6 +649,7 @@
 	_mouseHideTimer = nil;
     
     [[_aboutButton animator] setAlphaValue:0.0];
+//    [self hideTitlebar];
 }
 
 -(void)invalidateMouseHideTimer
@@ -666,6 +668,22 @@
 {
     [_aboutPanel setIsVisible:YES];
     
+}
+
+- (void)hideTitlebar
+{
+    [[[_window standardWindowButton:NSWindowCloseButton] animator] setAlphaValue:0];
+    [[[_window standardWindowButton:NSWindowMiniaturizeButton] animator] setAlphaValue:0];
+    [[[_window standardWindowButton:NSWindowZoomButton] animator] setAlphaValue:0];
+    [[[_window standardWindowButton:NSWindowFullScreenButton] animator] setAlphaValue:0];
+}
+
+- (void)showTitlebar
+{
+    [[[_window standardWindowButton:NSWindowCloseButton] animator] setAlphaValue:1];
+    [[[_window standardWindowButton:NSWindowMiniaturizeButton] animator] setAlphaValue:1];
+    [[[_window standardWindowButton:NSWindowZoomButton] animator] setAlphaValue:1];
+    [[[_window standardWindowButton:NSWindowFullScreenButton] animator] setAlphaValue:1];
 }
 
 - (IBAction)openLinkStephan:(id)sender {
