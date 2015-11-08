@@ -65,6 +65,8 @@
     [_window setDelegate:self];
     [_window setLevel:kCGMainMenuWindowLevel + 2];
     [_window makeKeyAndOrderFront:self];
+    [_window setTitlebarAppearsTransparent:YES];
+    [_window setTitleVisibility:NSWindowTitleHidden];
     
     // create main view
     _view = [[MasqClearView alloc] initWithFrame:NSMakeRect(0, 0, _window.frame.size.width, _window.frame.size.height)];
@@ -636,7 +638,7 @@
     _mouseHideTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(hideMouse:) userInfo:nil repeats:NO];
     
     [[_aboutButton animator] setAlphaValue:1.0];
-//    [self showTitlebar];
+    [self showTitlebar];
 }
 
 -(void)hideMouse:(NSTimer *)timer
@@ -649,7 +651,7 @@
 	_mouseHideTimer = nil;
     
     [[_aboutButton animator] setAlphaValue:0.0];
-//    [self hideTitlebar];
+    [self hideTitlebar];
 }
 
 -(void)invalidateMouseHideTimer

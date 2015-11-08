@@ -16,7 +16,6 @@
 		028A503B1986B5F2009BBC3C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 028A503A1986B5F2009BBC3C /* main.m */; };
 		028A503F1986B5F2009BBC3C /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 028A503D1986B5F2009BBC3C /* Credits.rtf */; };
 		028A50421986B5F2009BBC3C /* MasqAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 028A50411986B5F2009BBC3C /* MasqAppDelegate.m */; };
-		028A504E1986B5F2009BBC3C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028A504D1986B5F2009BBC3C /* XCTest.framework */; };
 		028A504F1986B5F2009BBC3C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028A502E1986B5F2009BBC3C /* Cocoa.framework */; };
 		028A50571986B5F2009BBC3C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 028A50551986B5F2009BBC3C /* InfoPlist.strings */; };
 		028A50591986B5F2009BBC3C /* MasqueradeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 028A50581986B5F2009BBC3C /* MasqueradeTests.m */; };
@@ -36,6 +35,7 @@
 		02C92C341993EBAB00D52665 /* Masquerade.icns in Resources */ = {isa = PBXBuildFile; fileRef = 02C92C2E1993EA0400D52665 /* Masquerade.icns */; };
 		02C92C361993EFBC00D52665 /* icon_1024x1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 02C92C351993EFBC00D52665 /* icon_1024x1024.png */; };
 		02CBBE401987852D0073DEB7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02CBBE3F1987852D0073DEB7 /* QuartzCore.framework */; };
+		02E5BA4B1BEFAA9E00E76F93 /* Interface.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02E5BA491BEFAA9E00E76F93 /* Interface.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,7 +70,6 @@
 		028A50401986B5F2009BBC3C /* MasqAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasqAppDelegate.h; sourceTree = "<group>"; };
 		028A50411986B5F2009BBC3C /* MasqAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasqAppDelegate.m; sourceTree = "<group>"; };
 		028A504C1986B5F2009BBC3C /* MasqueradeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MasqueradeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		028A504D1986B5F2009BBC3C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		028A50541986B5F2009BBC3C /* MasqueradeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MasqueradeTests-Info.plist"; sourceTree = "<group>"; };
 		028A50561986B5F2009BBC3C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		028A50581986B5F2009BBC3C /* MasqueradeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasqueradeTests.m; sourceTree = "<group>"; };
@@ -94,6 +93,7 @@
 		02C92C2E1993EA0400D52665 /* Masquerade.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Masquerade.icns; sourceTree = SOURCE_ROOT; };
 		02C92C351993EFBC00D52665 /* icon_1024x1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_1024x1024.png; path = ../Res/icon_1024x1024.png; sourceTree = "<group>"; };
 		02CBBE3F1987852D0073DEB7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		02E5BA4C1BEFAADF00E76F93 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/Interface.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +111,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				028A504F1986B5F2009BBC3C /* Cocoa.framework in Frameworks */,
-				028A504E1986B5F2009BBC3C /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,7 +142,6 @@
 			children = (
 				02CBBE3F1987852D0073DEB7 /* QuartzCore.framework */,
 				028A502E1986B5F2009BBC3C /* Cocoa.framework */,
-				028A504D1986B5F2009BBC3C /* XCTest.framework */,
 				028A50301986B5F2009BBC3C /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -162,6 +160,7 @@
 		028A50341986B5F2009BBC3C /* Masquerade */ = {
 			isa = PBXGroup;
 			children = (
+				02E5BA491BEFAA9E00E76F93 /* Interface.xib */,
 				0293E2EA1993F39600A6A308 /* Masquerade.entitlements */,
 				028A50401986B5F2009BBC3C /* MasqAppDelegate.h */,
 				028A50411986B5F2009BBC3C /* MasqAppDelegate.m */,
@@ -341,6 +340,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 028A50221986B5F2009BBC3C;
 			productRefGroup = 028A502C1986B5F2009BBC3C /* Products */;
@@ -364,6 +364,7 @@
 				028A50391986B5F2009BBC3C /* InfoPlist.strings in Resources */,
 				02C92C361993EFBC00D52665 /* icon_1024x1024.png in Resources */,
 				02C92C2C1993E94600D52665 /* cursor_resizenorthwestsoutheast.pdf in Resources */,
+				02E5BA4B1BEFAA9E00E76F93 /* Interface.xib in Resources */,
 				02C92C271993E94600D52665 /* info_resizenortheastsouthwest.plist in Resources */,
 				02C92C2D1993E94600D52665 /* info_resizenorthwestsoutheast.plist in Resources */,
 				02C92C0E1993E91F00D52665 /* withlove.png in Resources */,
@@ -443,6 +444,14 @@
 				028A50561986B5F2009BBC3C /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		02E5BA491BEFAA9E00E76F93 /* Interface.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				02E5BA4C1BEFAADF00E76F93 /* en */,
+			);
+			name = Interface.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -528,7 +537,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Masquerade/Masquerade-Prefix.pch";
 				INFOPLIST_FILE = "Masquerade/Masquerade-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.riccardolardi.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -545,7 +554,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Masquerade/Masquerade-Prefix.pch";
 				INFOPLIST_FILE = "Masquerade/Masquerade-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.riccardolardi.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
