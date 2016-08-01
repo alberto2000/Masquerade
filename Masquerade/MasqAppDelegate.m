@@ -65,8 +65,8 @@
     [_window setDelegate:self];
     [_window setLevel:kCGMainMenuWindowLevel + 2];
     [_window makeKeyAndOrderFront:self];
-    [_window setTitlebarAppearsTransparent:YES];
-    [_window setTitleVisibility:NSWindowTitleHidden];
+    // [_window setTitlebarAppearsTransparent:YES];
+    // [_window setTitleVisibility:NSWindowTitleHidden];
     
     // create main view
     _view = [[MasqClearView alloc] initWithFrame:NSMakeRect(0, 0, _window.frame.size.width, _window.frame.size.height)];

@@ -22,7 +22,6 @@
 		028A50641986BC29009BBC3C /* MasqMaskingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 028A50631986BC29009BBC3C /* MasqMaskingView.m */; };
 		02A39BB9198BE7A100DC8BF8 /* FrameUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A39BB6198BE7A100DC8BF8 /* FrameUtils.m */; };
 		02A39BBA198BE7A100DC8BF8 /* UIView+FrameUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A39BB8198BE7A100DC8BF8 /* UIView+FrameUtils.m */; };
-		02C92C0E1993E91F00D52665 /* withlove.png in Resources */ = {isa = PBXBuildFile; fileRef = 02C92C0D1993E91F00D52665 /* withlove.png */; };
 		02C92C101993E92800D52665 /* crash.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 02C92C0F1993E92800D52665 /* crash.aiff */; };
 		02C92C231993E94600D52665 /* cursor_resizeeastwest.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 02C92C141993E94600D52665 /* cursor_resizeeastwest.pdf */; };
 		02C92C241993E94600D52665 /* info_resizeeastwest.plist in Resources */ = {isa = PBXBuildFile; fileRef = 02C92C151993E94600D52665 /* info_resizeeastwest.plist */; };
@@ -80,7 +79,6 @@
 		02A39BB6198BE7A100DC8BF8 /* FrameUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrameUtils.m; sourceTree = "<group>"; };
 		02A39BB7198BE7A100DC8BF8 /* UIView+FrameUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FrameUtils.h"; sourceTree = "<group>"; };
 		02A39BB8198BE7A100DC8BF8 /* UIView+FrameUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FrameUtils.m"; sourceTree = "<group>"; };
-		02C92C0D1993E91F00D52665 /* withlove.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = withlove.png; path = ../Res/withlove.png; sourceTree = "<group>"; };
 		02C92C0F1993E92800D52665 /* crash.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = crash.aiff; path = ../Res/crash.aiff; sourceTree = "<group>"; };
 		02C92C141993E94600D52665 /* cursor_resizeeastwest.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = cursor_resizeeastwest.pdf; sourceTree = "<group>"; };
 		02C92C151993E94600D52665 /* info_resizeeastwest.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = info_resizeeastwest.plist; sourceTree = "<group>"; };
@@ -184,7 +182,6 @@
 			children = (
 				02C92C111993E94600D52665 /* Masquerade.cursors */,
 				02C92C2E1993EA0400D52665 /* Masquerade.icns */,
-				02C92C0D1993E91F00D52665 /* withlove.png */,
 				02C92C351993EFBC00D52665 /* icon_1024x1024.png */,
 				02C92C0F1993E92800D52665 /* crash.aiff */,
 				028A50361986B5F2009BBC3C /* Masquerade-Info.plist */,
@@ -367,7 +364,6 @@
 				02E5BA4B1BEFAA9E00E76F93 /* Interface.xib in Resources */,
 				02C92C271993E94600D52665 /* info_resizenortheastsouthwest.plist in Resources */,
 				02C92C2D1993E94600D52665 /* info_resizenorthwestsoutheast.plist in Resources */,
-				02C92C0E1993E91F00D52665 /* withlove.png in Resources */,
 				02C92C231993E94600D52665 /* cursor_resizeeastwest.pdf in Resources */,
 				028A503F1986B5F2009BBC3C /* Credits.rtf in Resources */,
 				02C92C2A1993E94600D52665 /* info_resizenorthsouth.plist in Resources */,
@@ -532,7 +528,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = Masquerade/Masquerade.entitlements;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Masquerade/Masquerade-Prefix.pch";
@@ -549,7 +545,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = Masquerade/Masquerade.entitlements;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Masquerade/Masquerade-Prefix.pch";

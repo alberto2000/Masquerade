@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9059"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -43,36 +43,33 @@
         </menu>
         <window title="About Masquerade" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="JwS-nI-wuB" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" utility="YES"/>
-            <rect key="contentRect" x="593" y="303" width="288" height="351"/>
+            <rect key="contentRect" x="593" y="303" width="288" height="292"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
             <view key="contentView" id="fgw-17-BUN">
-                <rect key="frame" x="0.0" y="0.0" width="288" height="351"/>
+                <rect key="frame" x="0.0" y="0.0" width="288" height="292"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="PU6-Tz-dRS">
-                        <rect key="frame" x="18" y="219" width="252" height="17"/>
+                        <rect key="frame" x="18" y="160" width="252" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <animations/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Masquerade Version 1.2" id="CPZ-xf-oLn">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Masquerade Version 1.2.2" id="CPZ-xf-oLn">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="TQS-We-wuw">
-                        <rect key="frame" x="18" y="194" width="252" height="17"/>
+                        <rect key="frame" x="18" y="135" width="252" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <animations/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="November 2015" id="4Xh-rq-qpN">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="August 2016" id="4Xh-rq-qpN">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="I4t-D6-o2r">
-                        <rect key="frame" x="18" y="154" width="252" height="17"/>
+                        <rect key="frame" x="18" y="95" width="252" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <animations/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Idea &amp; Concept Stephan Walter" id="BCT-ek-0t5">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -80,9 +77,8 @@
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="0PS-Lk-x6a">
-                        <rect key="frame" x="18" y="103" width="252" height="17"/>
+                        <rect key="frame" x="18" y="44" width="252" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <animations/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Design &amp; Coding Riccardo Lardi" id="isV-ut-65n">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -90,9 +86,8 @@
                         </textFieldCell>
                     </textField>
                     <button verticalHuggingPriority="750" id="YyD-M4-EOJ">
-                        <rect key="frame" x="14" y="122" width="260" height="32"/>
+                        <rect key="frame" x="14" y="63" width="260" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <animations/>
                         <buttonCell key="cell" type="push" title="www.stephanwalter.ch" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fCG-x0-u89">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -102,9 +97,8 @@
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" id="PHR-fO-Yes">
-                        <rect key="frame" x="14" y="72" width="260" height="32"/>
+                        <rect key="frame" x="14" y="13" width="260" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <animations/>
                         <buttonCell key="cell" type="push" title="www.riccardolardi.com" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="GGz-BQ-uur">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -114,24 +108,16 @@
                         </connections>
                     </button>
                     <imageView id="v0M-pd-fGq">
-                        <rect key="frame" x="100" y="247" width="86" height="86"/>
+                        <rect key="frame" x="100" y="188" width="86" height="86"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" image="icon_1024x1024" id="mhS-Wb-su7"/>
                     </imageView>
-                    <imageView id="Gta-v3-Ddp">
-                        <rect key="frame" x="73" y="10" width="168" height="64"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
-                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" image="withlove" id="1lC-9z-cLJ"/>
-                    </imageView>
                 </subviews>
-                <animations/>
             </view>
+            <point key="canvasLocation" x="274" y="325"/>
         </window>
     </objects>
     <resources>
         <image name="icon_1024x1024" width="491.51998901367188" height="492"/>
-        <image name="withlove" width="791" height="306"/>
     </resources>
 </document>
