@@ -1,7 +1,7 @@
 #Masquerade
 ####Self initiated, Mac OSX Utility App
 
-![Masquerade](http://www.riccardolardi.com/tmp/masquerade/logo_320.png)
+![Masquerade](http://www.riccardolardi.com/tmp/masquerade/logo_180.png)
 
 Download on the [Mac App Store](https://itunes.apple.com/ch/app/masquerade/id907165103?mt=12)
 
