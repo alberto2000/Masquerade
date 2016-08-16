@@ -1,6 +1,8 @@
 #Masquerade
 ####Self initiated, Mac OSX Utility App
 
+![Masquerade](http://www.riccardolardi.com/tmp/masquerade/logo_320.png)
+
 Download on the [Mac App Store](https://itunes.apple.com/ch/app/masquerade/id907165103?mt=12)
 
 Mask, hide and cover parts of your desktop, so to only see a certain area while the rest is hidden to your eyes. For example, if you like streaming movies in your browser but do not want to make the movie fullscreen as the quality is too bad, use Masquerade to mask the movie on your screen and hide away all clutter you don't want to see.
