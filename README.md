@@ -1,5 +1,5 @@
 #Masquerade
-####Self initiated, Mac OSX Utility App
+####A self initiated Mac OSX Utility App
 
 ![Masquerade](http://www.riccardolardi.com/tmp/masquerade/logo_180.png)
 
