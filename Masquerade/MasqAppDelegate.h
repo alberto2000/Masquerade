@@ -78,6 +78,7 @@
 @property int innerWidth;
 @property int innerHeight;
 @property float appTransparency;
+@property float dragTransparency;
 
 @property NSTimer *mouseHideTimer;
 @property NSArray *maskAreas;

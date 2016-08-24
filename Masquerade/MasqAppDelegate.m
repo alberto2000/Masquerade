@@ -127,8 +127,9 @@
                                    selector:@selector(fadeInApp:)
                                    userInfo:nil
                                     repeats:NO];
-    // app transparency
+    // transparencies
     _appTransparency = [_transparencySlider floatValue] / 100;
+    _dragTransparency = 0.5f;
     
     // color well setup
     _colorPanel = [NSColorPanel sharedColorPanel];
@@ -145,7 +146,7 @@
     [[_window animator] setAlphaValue:1.0f];
     [[_titlebarBackgroundWindow animator] setAlphaValue:1.0f];
     
-    [self maskingViewsTranslucent:NO];
+    [self gotoBackgroundAnimated:YES withOpacity:_appTransparency];
 }
 
 -(void)addMaskingSubviews
@@ -650,14 +651,12 @@
 
 -(void)maskingViewsTranslucent:(BOOL)flag
 {
-    float newValue = 0.75f;
-    
-    if (_appTransparency < newValue) newValue = _appTransparency;
-    
     if (flag == YES) {
-        [self gotoTransparency:newValue withAnimation:YES];
+        if (_dragTransparency < _appTransparency) {
+            [self gotoBackgroundAnimated:NO withOpacity:_dragTransparency];
+        }
     } else {
-        [self gotoTransparency:_appTransparency withAnimation:YES];
+        [self gotoBackgroundAnimated:NO withOpacity:_appTransparency];
     }
 }
 
@@ -739,7 +738,7 @@
 
 - (IBAction)opacitySliderChanged:(id)sender {
     _appTransparency = [sender floatValue] / 100;
-    [self gotoTransparency:_appTransparency withAnimation:NO];
+    [self gotoBackgroundAnimated:NO withOpacity:_appTransparency];
 }
 
 - (IBAction)colorButtonClicked:(id)sender {
@@ -751,44 +750,32 @@
     CGColorRef newColor = [sender color];
     _backgroundColor = (__bridge NSColor *)(newColor);
     
-    for (MasqMaskingView *area in _maskAreas) {
-        [area setBackgroundColor:_backgroundColor];
-        [area setNeedsDisplay:YES];
-    }
-    
-    [_titlebarBackgroundWindow setBackgroundColor:(__bridge NSColor * _Nullable)(newColor)];
+    [self gotoBackgroundAnimated:NO withOpacity:_appTransparency];
 }
 
--(void)gotoTransparency:(float)value withAnimation:(BOOL)anim {
+-(void)gotoBackgroundAnimated:(BOOL)anim withOpacity:(float)opacity {
     
-    NSColor *bgColor = [_backgroundColor colorWithAlphaComponent:value];
+    NSColor *bgColor = [_backgroundColor colorWithAlphaComponent:opacity];
     
-    if (anim) {
+    if (anim == YES) {
         
-        [[_titlebarBackgroundWindow animator] setBackgroundColor:bgColor];
-        
-        [[_topMaskingView animator] setAlphaValue:value];
-        [[_rightMaskingView animator] setAlphaValue:value];
-        [[_bottomMaskingView animator] setAlphaValue:value];
-        [[_leftMaskingView animator] setAlphaValue:value];
-        
-        [[_topLeftMaskingView animator] setAlphaValue:value];
-        [[_topRightMaskingView animator] setAlphaValue:value];
-        [[_bottomRightMaskingView animator] setAlphaValue:value];
-        [[_bottomLeftMaskingView animator] setAlphaValue:value];
-    } else {
+        for (MasqMaskingView *area in _maskAreas) {
+            [area setBackgroundColor:bgColor];
+            [area setNeedsDisplay:YES];
+            [[area animator] setAlphaValue:opacity];
+        }
         
         [_titlebarBackgroundWindow setBackgroundColor:bgColor];
+        [[_titlebarBackgroundWindow animator] setAlphaValue:opacity];
         
-        [_topMaskingView setAlphaValue:value];
-        [_rightMaskingView setAlphaValue:value];
-        [_bottomMaskingView setAlphaValue:value];
-        [_leftMaskingView setAlphaValue:value];
+    } else {
         
-        [_topLeftMaskingView setAlphaValue:value];
-        [_topRightMaskingView setAlphaValue:value];
-        [_bottomRightMaskingView setAlphaValue:value];
-        [_bottomLeftMaskingView setAlphaValue:value];
+        for (MasqMaskingView *area in _maskAreas) {
+            [area setBackgroundColor:bgColor];
+            [area setNeedsDisplay:YES];
+        }
+        
+        [_titlebarBackgroundWindow setBackgroundColor:bgColor];
     }
 }
 
