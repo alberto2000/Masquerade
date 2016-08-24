@@ -31,13 +31,14 @@
 
 @implementation MasqMaskingView
 
-- (id)initWithFrame:(NSRect)frame
+- (id)initWithFrame:(NSRect)frame withBackgroundColor:(NSColor*)bgColor
 {
     self = [super initWithFrame:frame];
     if (self) {
         
         // init
         [self resetTrackingArea];
+        _backgroundColor = bgColor;
         
     }
     return self;
@@ -47,8 +48,8 @@
 {
     [super drawRect:dirtyRect];
     
-    // black background color
-    [[NSColor blackColor] setFill];
+    // custom background color
+    [_backgroundColor setFill];
     
     NSRectFill(dirtyRect);
 }

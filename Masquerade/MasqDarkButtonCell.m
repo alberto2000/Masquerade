@@ -53,19 +53,19 @@
     
     // Outer stroke (drawn as gradient)
     
-    [ctx saveGraphicsState];
-    NSBezierPath *outerClip = [NSBezierPath bezierPathWithRoundedRect:frame
-                                                              xRadius:roundedRadius
-                                                              yRadius:roundedRadius];
-    [outerClip setClip];
-    
-    NSGradient *outerGradient = [[NSGradient alloc] initWithColorsAndLocations:
-                                 [NSColor colorWithDeviceWhite:0.20f alpha:1.0f], 0.0f,
-                                 [NSColor colorWithDeviceWhite:0.21f alpha:1.0f], 1.0f,
-                                 nil];
-    
-    [outerGradient drawInRect:[outerClip bounds] angle:90.0f];
-    [ctx restoreGraphicsState];
+//    [ctx saveGraphicsState];
+//    NSBezierPath *outerClip = [NSBezierPath bezierPathWithRoundedRect:frame
+//                                                              xRadius:roundedRadius
+//                                                              yRadius:roundedRadius];
+//    [outerClip setClip];
+//    
+//    NSGradient *outerGradient = [[NSGradient alloc] initWithColorsAndLocations:
+//                                 [NSColor colorWithDeviceWhite:0.20f alpha:1.0f], 0.0f,
+//                                 [NSColor colorWithDeviceWhite:0.21f alpha:1.0f], 1.0f,
+//                                 nil];
+//    
+//    [outerGradient drawInRect:[outerClip bounds] angle:90.0f];
+//    [ctx restoreGraphicsState];
     
     // Background gradient
     

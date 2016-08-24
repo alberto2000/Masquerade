@@ -37,6 +37,9 @@
 @property NSString *sideId;
 @property NSTrackingArea *trackingArea;
 
+@property (strong, nonatomic) NSColor *backgroundColor;
+
+- (id)initWithFrame:(NSRect)frame withBackgroundColor:(NSColor*)bgColor;
 - (void)resetTrackingArea;
 
 @end

@@ -43,6 +43,9 @@
 
 -(void)initApp
 {
+    
+    // initial background color
+    _backgroundColor = [NSColor blackColor];
 
     // hide menu bar and dock
     [[NSApplication sharedApplication] setPresentationOptions: NSApplicationPresentationHideMenuBar | NSApplicationPresentationHideDock];
@@ -65,8 +68,6 @@
     [_window setDelegate:self];
     [_window setLevel:kCGMainMenuWindowLevel + 2];
     [_window makeKeyAndOrderFront:self];
-    // [_window setTitlebarAppearsTransparent:YES];
-    // [_window setTitleVisibility:NSWindowTitleHidden];
     
     // create main view
     _view = [[MasqClearView alloc] initWithFrame:NSMakeRect(0, 0, _window.frame.size.width, _window.frame.size.height)];
@@ -85,7 +86,7 @@
     [_titlebarBackgroundWindow setAlphaValue:0.0];
     [_titlebarBackgroundWindow setMovable:NO];
     [_titlebarBackgroundWindow setHasShadow:NO];
-    [_titlebarBackgroundWindow setBackgroundColor:[NSColor blackColor]];
+    [_titlebarBackgroundWindow setBackgroundColor:_backgroundColor];
     [_titlebarBackgroundWindow setLevel:NSNormalWindowLevel];
     [_window addChildWindow:_titlebarBackgroundWindow ordered:NSWindowBelow];
     
@@ -126,11 +127,24 @@
                                    selector:@selector(fadeInApp:)
                                    userInfo:nil
                                     repeats:NO];
+    // app transparency
+    _appTransparency = [_transparencySlider floatValue] / 100;
+    
+    // color well setup
+    _colorPanel = [NSColorPanel sharedColorPanel];
+    [_colorPanel setLevel:kCGMaximumWindowLevel];
+    [_colorPanel setContinuous:YES];
+    [_colorPanel setTarget:self];
+    [_colorPanel setAction:@selector(colorPanelAction:)];
+    [_colorPanel setColor:[NSColor blackColor]];
     
 }
 
 -(void)fadeInApp:(NSTimer*)theTimer
 {
+    [[_window animator] setAlphaValue:1.0f];
+    [[_titlebarBackgroundWindow animator] setAlphaValue:1.0f];
+    
     [self maskingViewsTranslucent:NO];
 }
 
@@ -189,6 +203,9 @@
     [_bottomRightMaskingView setMainController:self];
     [_bottomRightMaskingView setSideId:@"bottomright"];
     
+    // add all areas to array
+    _maskAreas = [NSArray arrayWithObjects:_topMaskingView, _rightMaskingView, _bottomMaskingView, _leftMaskingView, _topLeftMaskingView, _topRightMaskingView, _bottomRightMaskingView, _bottomLeftMaskingView, nil];
+    
 }
 
 -(void)resetMask
@@ -240,6 +257,17 @@
 -(void)createButtons
 {
     NSRect rect;
+    
+    // the options button
+    rect = NSMakeRect(_titlebarView.frame.size.width - 156, 0, 72, 20);
+    _optionsButton = [[MasqDarkButton alloc] initWithFrame:rect];
+    [_optionsButton setButtonType:NSMomentaryPushInButton];
+    [_optionsButton setBezelStyle:NSRoundedBezelStyle];
+    [_optionsButton setTitle:@"Options"];
+    [_titlebarBackgroundWindow.contentView addSubview:_optionsButton];
+    [_optionsButton setTarget:self];
+    [_optionsButton setAction:@selector(showOptions)];
+    [_optionsButton setMainController:self];
     
     // the about button
     rect = NSMakeRect(_titlebarView.frame.size.width - 76, 0, 72, 20);
@@ -314,11 +342,11 @@
             [_topMaskingView frameMoveToY:floor(cursorInView.y)];
             
             // topleft bar
-            [_topLeftMaskingView frameResizeToHeight:floor(_window.frame.size.height - cursorInView.y)];
+            [_topLeftMaskingView frameResizeToHeight:ceil(_window.frame.size.height - cursorInView.y)];
             [_topLeftMaskingView frameMoveToY:floor(cursorInView.y)];
             
             // topright bar
-            [_topRightMaskingView frameResizeToHeight:floor(_window.frame.size.height - cursorInView.y)];
+            [_topRightMaskingView frameResizeToHeight:ceil(_window.frame.size.height - cursorInView.y)];
             [_topRightMaskingView frameMoveToY:floor(cursorInView.y)];
             
             // left bar
@@ -397,7 +425,7 @@
             
             // topleft bar
             [_topLeftMaskingView frameResizeToWidth:floor(cursorInView.x)];
-            [_topLeftMaskingView frameResizeToHeight:floor(_window.frame.size.height - cursorInView.y)];
+            [_topLeftMaskingView frameResizeToHeight:ceil(_window.frame.size.height - cursorInView.y)];
             [_topLeftMaskingView frameMoveToY:floor(cursorInView.y)];
             
             // left bar
@@ -411,7 +439,7 @@
             [_topMaskingView frameMoveToY:floor(_window.frame.size.height - _topLeftMaskingView.frame.size.height)];
             
             // topright bar
-            [_topRightMaskingView frameResizeToHeight:floor(_window.frame.size.height - cursorInView.y)];
+            [_topRightMaskingView frameResizeToHeight:ceil(_window.frame.size.height - cursorInView.y)];
             [_topRightMaskingView frameMoveToY:floor(_window.frame.size.height - _topLeftMaskingView.frame.size.height)];
             
             // right bar
@@ -431,7 +459,7 @@
             // topright bar
             [_topRightMaskingView frameResizeToWidth:ceil(_window.frame.size.width - cursorInView.x)];
             [_topRightMaskingView frameMoveToX:floor(cursorInView.x)];
-            [_topRightMaskingView frameResizeToHeight:floor(_window.frame.size.height - cursorInView.y)];
+            [_topRightMaskingView frameResizeToHeight:ceil(_window.frame.size.height - cursorInView.y)];
             [_topRightMaskingView frameMoveToY:floor(cursorInView.y)];
             
             // right bar
@@ -445,7 +473,7 @@
             [_topMaskingView frameMoveToY:floor(_window.frame.size.height - _topRightMaskingView.frame.size.height)];
             
             // topleft bar
-            [_topLeftMaskingView frameResizeToHeight:floor(_window.frame.size.height - cursorInView.y)];
+            [_topLeftMaskingView frameResizeToHeight:ceil(_window.frame.size.height - cursorInView.y)];
             [_topLeftMaskingView frameMoveToY:floor(_window.frame.size.height - _topRightMaskingView.frame.size.height)];
             
             // left bar
@@ -622,12 +650,14 @@
 
 -(void)maskingViewsTranslucent:(BOOL)flag
 {
+    float newValue = 0.75f;
+    
+    if (_appTransparency < newValue) newValue = _appTransparency;
+    
     if (flag == YES) {
-        [[_window animator] setAlphaValue:0.75f];
-        [[_titlebarBackgroundWindow animator] setAlphaValue:0.75f];
+        [self gotoTransparency:newValue withAnimation:YES];
     } else {
-        [[_window animator] setAlphaValue:1.0f];
-        [[_titlebarBackgroundWindow animator] setAlphaValue:1.0f];
+        [self gotoTransparency:_appTransparency withAnimation:YES];
     }
 }
 
@@ -638,6 +668,7 @@
     _mouseHideTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(hideMouse:) userInfo:nil repeats:NO];
     
     [[_aboutButton animator] setAlphaValue:1.0];
+    [[_optionsButton animator] setAlphaValue:1.0];
     [self showTitlebar];
 }
 
@@ -651,6 +682,7 @@
 	_mouseHideTimer = nil;
     
     [[_aboutButton animator] setAlphaValue:0.0];
+    [[_optionsButton animator] setAlphaValue:0.0];
     [self hideTitlebar];
 }
 
@@ -661,15 +693,24 @@
     }
 }
 
-- (void)onMenuAboutClick:(id)sender
+- (IBAction)onMenuAboutClick:(id)sender
 {
     [self showAbout];
+}
+
+- (IBAction)onMenuOptionsClick:(id)sender {
+    [self showOptions];
 }
 
 - (void)showAbout
 {
     [_aboutPanel setIsVisible:YES];
-    
+}
+
+- (void)showOptions
+{
+    [_optionsPanel setIsVisible:YES];
+    [_optionsPanel setLevel:kCGMaximumWindowLevel];
 }
 
 - (void)hideTitlebar
@@ -694,6 +735,61 @@
 
 - (IBAction)openLinkRiccardo:(id)sender {
     [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://www.riccardolardi.com"]];
+}
+
+- (IBAction)opacitySliderChanged:(id)sender {
+    _appTransparency = [sender floatValue] / 100;
+    [self gotoTransparency:_appTransparency withAnimation:NO];
+}
+
+- (IBAction)colorButtonClicked:(id)sender {
+    [_colorPanel makeKeyAndOrderFront:self];
+}
+
+-(void)colorPanelAction:(id)sender
+{
+    CGColorRef newColor = [sender color];
+    _backgroundColor = (__bridge NSColor *)(newColor);
+    
+    for (MasqMaskingView *area in _maskAreas) {
+        [area setBackgroundColor:_backgroundColor];
+        [area setNeedsDisplay:YES];
+    }
+    
+    [_titlebarBackgroundWindow setBackgroundColor:(__bridge NSColor * _Nullable)(newColor)];
+}
+
+-(void)gotoTransparency:(float)value withAnimation:(BOOL)anim {
+    
+    NSColor *bgColor = [_backgroundColor colorWithAlphaComponent:value];
+    
+    if (anim) {
+        
+        [[_titlebarBackgroundWindow animator] setBackgroundColor:bgColor];
+        
+        [[_topMaskingView animator] setAlphaValue:value];
+        [[_rightMaskingView animator] setAlphaValue:value];
+        [[_bottomMaskingView animator] setAlphaValue:value];
+        [[_leftMaskingView animator] setAlphaValue:value];
+        
+        [[_topLeftMaskingView animator] setAlphaValue:value];
+        [[_topRightMaskingView animator] setAlphaValue:value];
+        [[_bottomRightMaskingView animator] setAlphaValue:value];
+        [[_bottomLeftMaskingView animator] setAlphaValue:value];
+    } else {
+        
+        [_titlebarBackgroundWindow setBackgroundColor:bgColor];
+        
+        [_topMaskingView setAlphaValue:value];
+        [_rightMaskingView setAlphaValue:value];
+        [_bottomMaskingView setAlphaValue:value];
+        [_leftMaskingView setAlphaValue:value];
+        
+        [_topLeftMaskingView setAlphaValue:value];
+        [_topRightMaskingView setAlphaValue:value];
+        [_bottomRightMaskingView setAlphaValue:value];
+        [_bottomLeftMaskingView setAlphaValue:value];
+    }
 }
 
 -(void)windowWillClose:(NSNotification *)notification

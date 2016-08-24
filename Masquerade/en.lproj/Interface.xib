@@ -15,6 +15,9 @@
         <customObject id="Voe-Tx-rLC" customClass="MasqAppDelegate">
             <connections>
                 <outlet property="aboutPanel" destination="JwS-nI-wuB" id="u3o-62-rc0"/>
+                <outlet property="colorButton" destination="tU2-Ow-b1x" id="JDj-mw-wGK"/>
+                <outlet property="optionsPanel" destination="aTM-Sq-Ib9" id="Rse-JJ-wk7"/>
+                <outlet property="transparencySlider" destination="DOG-y3-stw" id="6BO-aG-LcB"/>
             </connections>
         </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
@@ -28,6 +31,11 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="onMenuAboutClick:" target="Voe-Tx-rLC" id="03x-WR-sh7"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Options" keyEquivalent="," id="e1I-Ke-KVd">
+                                <connections>
+                                    <action selector="onMenuOptionsClick:" target="Voe-Tx-rLC" id="aag-dS-Mh5"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
@@ -115,6 +123,38 @@
                 </subviews>
             </view>
             <point key="canvasLocation" x="274" y="325"/>
+        </window>
+        <window title="Options" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="aTM-Sq-Ib9" customClass="NSPanel">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" utility="YES" HUD="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="90" y="125" width="125" height="274"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <view key="contentView" id="urf-Qh-0bE">
+                <rect key="frame" x="0.0" y="0.0" width="125" height="274"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <slider horizontalHuggingPriority="750" id="efk-vC-AMB">
+                        <rect key="frame" x="52" y="58" width="21" height="198"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <sliderCell key="cell" continuous="YES" alignment="left" maxValue="100" doubleValue="100" tickMarkPosition="right" sliderType="linear" id="DOG-y3-stw"/>
+                        <connections>
+                            <action selector="opacitySliderChanged:" target="Voe-Tx-rLC" id="kZ5-sQ-5Pb"/>
+                        </connections>
+                    </slider>
+                    <button verticalHuggingPriority="750" springLoaded="YES" id="tU2-Ow-b1x">
+                        <rect key="frame" x="14" y="13" width="97" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Set Color" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="5Ha-ad-Gdt">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="colorButtonClicked:" target="Voe-Tx-rLC" id="xDH-2H-4Jy"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </view>
+            <point key="canvasLocation" x="678.5" y="309"/>
         </window>
     </objects>
     <resources>

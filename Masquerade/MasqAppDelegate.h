@@ -57,8 +57,10 @@
 @property (strong, nonatomic) NSCursor *cursorNorthWestSouthEast;
 
 @property (strong, nonatomic) MasqDarkButton* aboutButton;
+@property (strong, nonatomic) MasqDarkButton* optionsButton;
 
 @property (strong, nonatomic) NSSound *crashSound;
+@property (strong, nonatomic) NSColor *backgroundColor;
 
 @property BOOL cursorInTopMaskingView;
 @property BOOL cursorInLeftMaskingView;
@@ -75,15 +77,26 @@
 
 @property int innerWidth;
 @property int innerHeight;
+@property float appTransparency;
 
-@property NSTimer* mouseHideTimer;
+@property NSTimer *mouseHideTimer;
+@property NSArray *maskAreas;
 
 @property (strong) IBOutlet NSPanel *aboutPanel;
+@property (strong) IBOutlet NSPanel *optionsPanel;
+
+@property (strong) IBOutlet NSSliderCell *transparencySlider;
+@property (strong) IBOutlet NSButton *colorButton;
+@property NSColorPanel *colorPanel;
 
 -(IBAction)onMenuAboutClick:(id)sender;
+-(IBAction)onMenuOptionsClick:(id)sender;
 
 -(IBAction)openLinkStephan:(id)sender;
 -(IBAction)openLinkRiccardo:(id)sender;
+
+-(IBAction)opacitySliderChanged:(id)sender;
+- (IBAction)colorButtonClicked:(id)sender;
 
 -(void)mouseDown:(NSEvent *)theEvent fromId:(NSString *)fromId;
 -(void)mouseDragged:(NSEvent *)theEvent fromId:(NSString *)fromId;
