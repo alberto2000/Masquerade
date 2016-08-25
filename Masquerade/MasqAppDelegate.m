@@ -28,7 +28,7 @@
 
 #import "MasqAppDelegate.h"
 #import "MasqClearView.h"
-#import "MasqDarkButton.h"
+#import "MasqButton.h"
 #import "MasqLogoView.h"
 #import <QuartzCore/CoreAnimation.h>
 #import "FrameUtils.h"
@@ -260,23 +260,23 @@
     NSRect rect;
     
     // the options button
-    rect = NSMakeRect(_titlebarView.frame.size.width - 156, 0, 72, 20);
-    _optionsButton = [[MasqDarkButton alloc] initWithFrame:rect];
+    rect = NSMakeRect(0, 26, 72, 72);
+    _optionsButton = [[MasqButton alloc] initWithFrame:rect];
     [_optionsButton setButtonType:NSMomentaryPushInButton];
     [_optionsButton setBezelStyle:NSRoundedBezelStyle];
     [_optionsButton setTitle:@"Options"];
-    [_titlebarBackgroundWindow.contentView addSubview:_optionsButton];
+    [_window.contentView addSubview:_optionsButton];
     [_optionsButton setTarget:self];
     [_optionsButton setAction:@selector(showOptions)];
     [_optionsButton setMainController:self];
     
     // the about button
-    rect = NSMakeRect(_titlebarView.frame.size.width - 76, 0, 72, 20);
-    _aboutButton = [[MasqDarkButton alloc] initWithFrame:rect];
+    rect = NSMakeRect(0, 26, 72, 22);
+    _aboutButton = [[MasqButton alloc] initWithFrame:rect];
     [_aboutButton setButtonType:NSMomentaryPushInButton];
     [_aboutButton setBezelStyle:NSRoundedBezelStyle];
     [_aboutButton setTitle:@"About"];
-    [_titlebarBackgroundWindow.contentView addSubview:_aboutButton];
+    [_window.contentView addSubview:_aboutButton];
     [_aboutButton setTarget:self];
     [_aboutButton setAction:@selector(showAbout)];
     [_aboutButton setMainController:self];
@@ -300,7 +300,7 @@
 -(void)updateCursor
 {
     
-    NSDictionary * dict = [self getAreasWhereCursorIs];
+    NSDictionary *dict = [self getAreasWhereCursorIs];
     
     if ([[dict objectForKey:@"barTopLeft"] boolValue] || [[dict objectForKey:@"barBottomRight"] boolValue]) {
         [_cursorNorthWestSouthEast set];
@@ -339,7 +339,7 @@
         if ([_draggingArea isEqual: @"barTop"]) {
             
             // top bar
-            [_topMaskingView frameResizeToHeight:floor(_window.frame.size.height - cursorInView.y)];
+            [_topMaskingView frameResizeToHeight:ceil(_window.frame.size.height - cursorInView.y)];
             [_topMaskingView frameMoveToY:floor(cursorInView.y)];
             
             // topleft bar

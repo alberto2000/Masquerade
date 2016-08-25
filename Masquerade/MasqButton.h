@@ -1,5 +1,5 @@
 //
-// MasqDarkButtonCell.h
+// MasqDarkButton.h
 // Masquerade
 //
 // Created by Riccardo Lardi on 28/07/14.
@@ -28,6 +28,12 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface MasqDarkButtonCell : NSButtonCell
+@class MasqAppDelegate;
+
+@interface MasqButton : NSButton
+
+@property (strong, nonatomic) MasqAppDelegate *mainController;
+
+@property (strong, nonatomic) NSTrackingArea *trackingArea;
 
 @end

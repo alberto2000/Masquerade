@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0205F83C1993730800DC803A /* MasqClearView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0205F83B1993730800DC803A /* MasqClearView.m */; };
-		0205F83F1993875700DC803A /* MasqDarkButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0205F83E1993875700DC803A /* MasqDarkButtonCell.m */; };
-		0205F8421993934500DC803A /* MasqDarkButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0205F8411993934500DC803A /* MasqDarkButton.m */; };
 		0205F8451993A65E00DC803A /* MasqLogoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0205F8441993A65E00DC803A /* MasqLogoView.m */; };
 		028A502F1986B5F2009BBC3C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028A502E1986B5F2009BBC3C /* Cocoa.framework */; };
 		028A50391986B5F2009BBC3C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 028A50371986B5F2009BBC3C /* InfoPlist.strings */; };
@@ -35,6 +33,7 @@
 		02C92C361993EFBC00D52665 /* icon_1024x1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 02C92C351993EFBC00D52665 /* icon_1024x1024.png */; };
 		02CBBE401987852D0073DEB7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02CBBE3F1987852D0073DEB7 /* QuartzCore.framework */; };
 		02E5BA4B1BEFAA9E00E76F93 /* Interface.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02E5BA491BEFAA9E00E76F93 /* Interface.xib */; };
+		02EA21071D6E56AA00C1CD42 /* MasqButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 02EA21061D6E56AA00C1CD42 /* MasqButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,10 +49,6 @@
 /* Begin PBXFileReference section */
 		0205F83A1993730800DC803A /* MasqClearView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasqClearView.h; sourceTree = "<group>"; };
 		0205F83B1993730800DC803A /* MasqClearView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasqClearView.m; sourceTree = "<group>"; };
-		0205F83D1993875700DC803A /* MasqDarkButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasqDarkButtonCell.h; sourceTree = "<group>"; };
-		0205F83E1993875700DC803A /* MasqDarkButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasqDarkButtonCell.m; sourceTree = "<group>"; };
-		0205F8401993934500DC803A /* MasqDarkButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasqDarkButton.h; sourceTree = "<group>"; };
-		0205F8411993934500DC803A /* MasqDarkButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasqDarkButton.m; sourceTree = "<group>"; };
 		0205F8431993A65E00DC803A /* MasqLogoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasqLogoView.h; sourceTree = "<group>"; };
 		0205F8441993A65E00DC803A /* MasqLogoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasqLogoView.m; sourceTree = "<group>"; };
 		028A502B1986B5F2009BBC3C /* Masquerade.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Masquerade.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,6 +87,8 @@
 		02C92C351993EFBC00D52665 /* icon_1024x1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_1024x1024.png; path = ../Res/icon_1024x1024.png; sourceTree = "<group>"; };
 		02CBBE3F1987852D0073DEB7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		02E5BA4C1BEFAADF00E76F93 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/Interface.xib; sourceTree = "<group>"; };
+		02EA21051D6E56AA00C1CD42 /* MasqButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasqButton.h; sourceTree = "<group>"; };
+		02EA21061D6E56AA00C1CD42 /* MasqButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasqButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,10 +163,8 @@
 				0205F83B1993730800DC803A /* MasqClearView.m */,
 				028A50621986BC29009BBC3C /* MasqMaskingView.h */,
 				028A50631986BC29009BBC3C /* MasqMaskingView.m */,
-				0205F8401993934500DC803A /* MasqDarkButton.h */,
-				0205F8411993934500DC803A /* MasqDarkButton.m */,
-				0205F83D1993875700DC803A /* MasqDarkButtonCell.h */,
-				0205F83E1993875700DC803A /* MasqDarkButtonCell.m */,
+				02EA21051D6E56AA00C1CD42 /* MasqButton.h */,
+				02EA21061D6E56AA00C1CD42 /* MasqButton.m */,
 				0205F8431993A65E00DC803A /* MasqLogoView.h */,
 				0205F8441993A65E00DC803A /* MasqLogoView.m */,
 				028A50351986B5F2009BBC3C /* Supporting Files */,
@@ -388,10 +383,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0205F83C1993730800DC803A /* MasqClearView.m in Sources */,
+				02EA21071D6E56AA00C1CD42 /* MasqButton.m in Sources */,
 				028A50421986B5F2009BBC3C /* MasqAppDelegate.m in Sources */,
 				028A503B1986B5F2009BBC3C /* main.m in Sources */,
-				0205F8421993934500DC803A /* MasqDarkButton.m in Sources */,
-				0205F83F1993875700DC803A /* MasqDarkButtonCell.m in Sources */,
 				028A50641986BC29009BBC3C /* MasqMaskingView.m in Sources */,
 				02A39BBA198BE7A100DC8BF8 /* UIView+FrameUtils.m in Sources */,
 				0205F8451993A65E00DC803A /* MasqLogoView.m in Sources */,

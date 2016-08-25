@@ -29,7 +29,7 @@
 #import <Cocoa/Cocoa.h>
 #import "MasqMaskingView.h"
 #import "MasqClearView.h"
-#import "MasqDarkButton.h"
+#import "MasqButton.h"
 #import "MasqLogoView.h"
 
 @interface MasqAppDelegate : NSObject <NSApplicationDelegate, NSWindowDelegate>
@@ -56,8 +56,8 @@
 @property (strong, nonatomic) NSCursor *cursorNorthEastSouthWest;
 @property (strong, nonatomic) NSCursor *cursorNorthWestSouthEast;
 
-@property (strong, nonatomic) MasqDarkButton* aboutButton;
-@property (strong, nonatomic) MasqDarkButton* optionsButton;
+@property (strong, nonatomic) MasqButton* aboutButton;
+@property (strong, nonatomic) MasqButton* optionsButton;
 
 @property (strong, nonatomic) NSSound *crashSound;
 @property (strong, nonatomic) NSColor *backgroundColor;
