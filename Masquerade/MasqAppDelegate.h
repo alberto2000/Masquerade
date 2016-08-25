@@ -83,6 +83,11 @@
 @property NSTimer *mouseHideTimer;
 @property NSArray *maskAreas;
 
+@property NSUserDefaults *pref;
+
+#define APP_TRANSPARENCY @"APP_TRANSPARENCY"
+#define APP_BACKGROUND_COLOR @"APP_BACKGROUND_COLOR"
+
 @property (strong) IBOutlet NSPanel *aboutPanel;
 @property (strong) IBOutlet NSPanel *optionsPanel;
 

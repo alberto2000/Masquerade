@@ -44,8 +44,29 @@
 -(void)initApp
 {
     
-    // initial background color
-    _backgroundColor = [NSColor blackColor];
+    // preferences
+    _pref = [NSUserDefaults standardUserDefaults];
+    
+    // retrieve stored background color
+    NSData *storedColor = [_pref dataForKey:APP_BACKGROUND_COLOR];
+    
+    if (storedColor != nil) {
+        _backgroundColor = (NSColor*)[NSUnarchiver unarchiveObjectWithData:storedColor];
+    } else {
+        _backgroundColor = [NSColor blackColor];
+    }
+    
+    // retrieve transparency
+    float storedTransparency = [_pref floatForKey:APP_TRANSPARENCY];
+    
+    if (storedTransparency) {
+        _appTransparency = storedTransparency;
+    } else {
+        _appTransparency = 1.0;
+    }
+
+    [_transparencySlider setFloatValue:_appTransparency*100];
+    _dragTransparency = 0.5f;
 
     // hide menu bar and dock
     [[NSApplication sharedApplication] setPresentationOptions: NSApplicationPresentationHideMenuBar | NSApplicationPresentationHideDock];
@@ -121,32 +142,29 @@
     // set inner dimensions
     [self updateInnerDimensions];
     
-    // fade in app
-    [NSTimer scheduledTimerWithTimeInterval:0.15
-                                     target:self
-                                   selector:@selector(fadeInApp:)
-                                   userInfo:nil
-                                    repeats:NO];
-    // transparencies
-    _appTransparency = [_transparencySlider floatValue] / 100;
-    _dragTransparency = 0.5f;
-    
     // color well setup
     _colorPanel = [NSColorPanel sharedColorPanel];
     [_colorPanel setLevel:kCGMaximumWindowLevel];
     [_colorPanel setContinuous:YES];
     [_colorPanel setTarget:self];
     [_colorPanel setAction:@selector(colorPanelAction:)];
-    [_colorPanel setColor:[NSColor blackColor]];
+    [_colorPanel setColor:_backgroundColor];
+    
+    // fade in app
+    [NSTimer scheduledTimerWithTimeInterval:0.15
+                                     target:self
+                                   selector:@selector(fadeInApp:)
+                                   userInfo:nil
+                                    repeats:NO];
     
 }
 
 -(void)fadeInApp:(NSTimer*)theTimer
 {
+    [self gotoBackgroundWithOpacity:_appTransparency];
+    
     [[_window animator] setAlphaValue:1.0f];
     [[_titlebarBackgroundWindow animator] setAlphaValue:1.0f];
-    
-    [self gotoBackgroundAnimated:YES withOpacity:_appTransparency];
 }
 
 -(void)addMaskingSubviews
@@ -271,7 +289,7 @@
     [_optionsButton setMainController:self];
     
     // the about button
-    rect = NSMakeRect(0, 26, 72, 22);
+    rect = NSMakeRect(0, 26, 72, 24);
     _aboutButton = [[MasqButton alloc] initWithFrame:rect];
     [_aboutButton setButtonType:NSMomentaryPushInButton];
     [_aboutButton setBezelStyle:NSRoundedBezelStyle];
@@ -653,10 +671,10 @@
 {
     if (flag == YES) {
         if (_dragTransparency < _appTransparency) {
-            [self gotoBackgroundAnimated:NO withOpacity:_dragTransparency];
+            [self gotoBackgroundWithOpacity:_dragTransparency];
         }
     } else {
-        [self gotoBackgroundAnimated:NO withOpacity:_appTransparency];
+        [self gotoBackgroundWithOpacity:_appTransparency];
     }
 }
 
@@ -738,7 +756,7 @@
 
 - (IBAction)opacitySliderChanged:(id)sender {
     _appTransparency = [sender floatValue] / 100;
-    [self gotoBackgroundAnimated:NO withOpacity:_appTransparency];
+    [self gotoBackgroundWithOpacity:_appTransparency];
 }
 
 - (IBAction)colorButtonClicked:(id)sender {
@@ -750,38 +768,31 @@
     CGColorRef newColor = [sender color];
     _backgroundColor = (__bridge NSColor *)(newColor);
     
-    [self gotoBackgroundAnimated:NO withOpacity:_appTransparency];
+    [self gotoBackgroundWithOpacity:_appTransparency];
 }
 
--(void)gotoBackgroundAnimated:(BOOL)anim withOpacity:(float)opacity {
+-(void)gotoBackgroundWithOpacity:(float)opacity {
     
     NSColor *bgColor = [_backgroundColor colorWithAlphaComponent:opacity];
     
-    if (anim == YES) {
-        
-        for (MasqMaskingView *area in _maskAreas) {
-            [area setBackgroundColor:bgColor];
-            [area setNeedsDisplay:YES];
-            [[area animator] setAlphaValue:opacity];
-        }
-        
-        [_titlebarBackgroundWindow setBackgroundColor:bgColor];
-        [[_titlebarBackgroundWindow animator] setAlphaValue:opacity];
-        
-    } else {
-        
-        for (MasqMaskingView *area in _maskAreas) {
-            [area setBackgroundColor:bgColor];
-            [area setNeedsDisplay:YES];
-        }
-        
-        [_titlebarBackgroundWindow setBackgroundColor:bgColor];
+    for (MasqMaskingView *area in _maskAreas) {
+        [area setBackgroundColor:bgColor];
+        [area setNeedsDisplay:YES];
     }
+    
+    [_titlebarBackgroundWindow setBackgroundColor:bgColor];
 }
 
 -(void)windowWillClose:(NSNotification *)notification
 {
     [_titlebarBackgroundWindow close];
+}
+
+-(void)applicationWillTerminate:(NSNotification *)notification
+{
+    [_pref setObject:[NSArchiver archivedDataWithRootObject:_backgroundColor] forKey:APP_BACKGROUND_COLOR];
+    [_pref setObject:[NSNumber numberWithFloat:_appTransparency] forKey:APP_TRANSPARENCY];
+    [_pref synchronize];
 }
 
 -(BOOL)applicationShouldTerminateAfterLastWindowClosed: (NSApplication *) theApplication
