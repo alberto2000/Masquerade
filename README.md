@@ -1,7 +1,7 @@
 # Masquerade
 ## Mask your Desktop like it was 1991
 
-![Masquerade](./Res/Masquerade.iconset/icon_256x256@2x.png)
+![Masquerade](./Res/Masquerade.iconset/icon_256x256.png)
 
 Download on the [Mac App Store](https://itunes.apple.com/ch/app/masquerade/id907165103?mt=12)
 
