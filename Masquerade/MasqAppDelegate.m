@@ -74,9 +74,9 @@
     // create main window
     NSRect mainWindowFrame = [[NSScreen mainScreen] frame];
     _window  = [[NSWindow alloc] initWithContentRect:mainWindowFrame
-                                                     styleMask:NSTexturedBackgroundWindowMask | NSTitledWindowMask | NSClosableWindowMask
-                                                       backing:NSBackingStoreBuffered
-                                                         defer:NO];
+										   styleMask:NSTexturedBackgroundWindowMask | NSTitledWindowMask | NSClosableWindowMask
+											 backing:NSBackingStoreBuffered
+											   defer:NO];
     
     // setup main window
     [_window setAlphaValue:0.0];
@@ -99,7 +99,7 @@
     NSRect titleBarBackgroundWindowFrame = NSMakeRect(_window.frame.origin.x, _window
                                                       .frame.origin.y + _window.frame.size.height - 22, _window.frame.size.width, 22);
     _titlebarBackgroundWindow = [[NSWindow alloc] initWithContentRect:titleBarBackgroundWindowFrame
-                                                        styleMask:NSBorderlessWindowMask
+															styleMask:NSBorderlessWindowMask
                                                           backing:NSBackingStoreBuffered
                                                             defer:NO];
     
@@ -765,7 +765,7 @@
 
 -(void)colorPanelAction:(id)sender
 {
-    CGColorRef newColor = [sender color];
+	CGColorRef newColor = (__bridge CGColorRef)([sender color]);
     _backgroundColor = (__bridge NSColor *)(newColor);
     
     [self gotoBackgroundWithOpacity:_appTransparency];

@@ -84,7 +84,7 @@
         rect = NSMakeRect(0, 0, 20, 20);
     } else if ([_sideId isEqualToString:@"bottomleft"]) {
         rect = NSMakeRect(self.frame.size.width - 20, self.frame.size.height - 20, 20, 20);
-    } else if ([_sideId isEqualToString:@"bottomright"]) {
+	} else {
         rect = NSMakeRect(0, self.frame.size.height - 20, 20, 20);
     }
 
